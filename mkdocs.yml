@@ -8,6 +8,11 @@ theme:
     - navigation.top
     - navigation.instant
     - navigation.expand
+    - search.highlight
+    - search.share
+    - search.suggest
+  custom_dir: theme_overrides/
 plugins:
     - awesome-pages
     - search
+copyright: Copyright &copy; HCL, 2021
