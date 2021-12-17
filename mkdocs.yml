@@ -1,1 +1,13 @@
-site_name: My Docs
+site_name: DX Test Site
+theme:
+  name: material
+  logo: assets/dx_logo.png
+  features:
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.top
+    - navigation.instant
+    - navigation.expand
+plugins:
+    - awesome-pages
+    - search
