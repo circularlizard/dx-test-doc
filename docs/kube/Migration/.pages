@@ -1,0 +1,6 @@
+nav:
+    - k8s-next-migrate-from-operator.md
+    - k8s-next-migrate-detail-core.md
+    - k8s-next-migrate-detail-dam.md
+    - k8s-next-property-migration.md
+    - ...

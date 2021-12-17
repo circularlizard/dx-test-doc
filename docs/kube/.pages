@@ -1,0 +1,11 @@
+nav:
+    - index.md
+    - k8s-next-deploy.md
+    - k8s-next-operation.md
+    - k8s-next-runtime-log-levels.md
+    - k8s-next-runtime-log-levels-dbha.md
+    - Prometheus
+    - Migration
+    - k8s-next-update.md
+    - k8s-next-undeploy.md
+    - ...
