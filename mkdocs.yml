@@ -2,6 +2,7 @@ site_name: DX Test Site
 theme:
   name: material
   logo: assets/dx_logo.png
+  language: en
   features:
     - navigation.tabs
     - navigation.indexes
@@ -13,6 +14,15 @@ theme:
     - search.suggest
   custom_dir: theme_overrides/
 plugins:
-    - awesome-pages
-    - search
+  - awesome-pages
+  - search
+  - i18n:
+      default_language: en
+      languages:
+        fr: Français
+  - mike:
+      version_selector: true
 copyright: Copyright &copy; HCL, 2021
+extra:
+  version:
+    provider: mike
