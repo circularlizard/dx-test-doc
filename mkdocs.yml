@@ -16,10 +16,6 @@ theme:
 plugins:
   - awesome-pages
   - search
-  - i18n:
-      default_language: en
-      languages:
-        fr: Français
   - mike:
       version_selector: true
 copyright: Copyright &copy; HCL, 2021
