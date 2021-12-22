@@ -35,4 +35,6 @@ jobs:
       - run: |
           git config --global user.name circularlizard
           git config --global user.email david.strachan@mac.com
-      - run: mike deploy --push -f --update-aliases 1 latest
+      - run: |
+        mike deploy --push -f --update-aliases 1 latest
+        mike set-default --push latest
