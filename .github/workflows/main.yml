@@ -35,4 +35,4 @@ jobs:
       - run: |
           git config --global user.name circularlizard deploy
           git config --global user.email docs@dummy.bot.com
-      - run: mike deploy 1
+      - run: mike deploy 1 --rebase
