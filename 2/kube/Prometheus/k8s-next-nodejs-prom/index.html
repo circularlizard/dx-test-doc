@@ -1,0 +1,1846 @@
+<!-- Elements added to main will be displayed on all pages -->
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.3">
+    
+    
+      
+        <title>NodeJS Metrics - DX Test Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.edf004c2.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#poc-goals" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        <aside class="md-banner md-banner--warning">
+          
+        </aside>
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="DX Test Site" class="md-header__button md-logo" aria-label="DX Test Site" data-md-component="logo">
+      
+  <img src="../../../assets/dx_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DX Test Site
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              NodeJS Metrics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../what%27s-new/new_cf17/" class="md-tabs__link">
+        What's new
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
+        Kube
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="DX Test Site" class="md-nav__button md-logo" aria-label="DX Test Site" data-md-component="logo">
+      
+  <img src="../../../assets/dx_logo.png" alt="logo">
+
+    </a>
+    DX Test Site
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          What's new
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="What's new" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          What's new
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/new_cf17/" class="md-nav__link">
+        What's new in CF17?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/new_cf171/" class="md-nav__link">
+        What's new in CF171? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/new_cf172/" class="md-nav__link">
+        What's new in CF172? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/new_cf173/" class="md-nav__link">
+        What's new in CF173? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/new_cf18/" class="md-nav__link">
+        What's new in CF18? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/new_noncf18/" class="md-nav__link">
+        What's new in CF18?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf182/" class="md-nav__link">
+        What's new in CF182? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf183/" class="md-nav__link">
+        What's new in CF183? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf184/" class="md-nav__link">
+        What's new in CF184? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf19/" class="md-nav__link">
+        What's new in CF19? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/new_noncf19/" class="md-nav__link">
+        What's new with CF19?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf191/" class="md-nav__link">
+        What's new in CF191? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf192/" class="md-nav__link">
+        What's new in CF192? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf193/" class="md-nav__link">
+        What's new in CF193? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf194/" class="md-nav__link">
+        What's new in CF194? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf195/" class="md-nav__link">
+        What's new in CF195? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf196/" class="md-nav__link">
+        What's new in CF196? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/new_noncf196/" class="md-nav__link">
+        What's new in CF196?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf197/" class="md-nav__link">
+        What's new in CF197? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/new_noncf197/" class="md-nav__link">
+        What's new with CF197?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf198/" class="md-nav__link">
+        What's new in CF198? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/new_noncf198/" class="md-nav__link">
+        What's new with CF198?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf199/" class="md-nav__link">
+        What's new in CF199? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/new_noncf199/" class="md-nav__link">
+        What's new with CF199?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/new_cf181/" class="md-nav__link">
+        What's new in CF181? Containers
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">Kube</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Kube" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Kube
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../k8s-next-deploy/" class="md-nav__link">
+        Deployment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../k8s-next-operation/" class="md-nav__link">
+        Operations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../k8s-next-runtime-log-levels/" class="md-nav__link">
+        Runtime log levels
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../k8s-next-runtime-log-levels-dbha/" class="md-nav__link">
+        Runtime log levels - DBHA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Prometheus
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Prometheus" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Prometheus
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          NodeJS Metrics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        NodeJS Metrics
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#poc-goals" class="md-nav__link">
+    PoC Goals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prepare-application-to-expose-metrics" class="md-nav__link">
+    Prepare application to expose metrics
+  </a>
+  
+    <nav class="md-nav" aria-label="Prepare application to expose metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-prom-client-to-the-server-package" class="md-nav__link">
+    Install prom-client to the server package
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expose-metrics-endpoint" class="md-nav__link">
+    Expose metrics endpoint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-custom-metrics" class="md-nav__link">
+    Add custom metrics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploying-dam-with-nodejs-metrics-enabled-in-kubernetes" class="md-nav__link">
+    Deploying DAM with NodeJS metrics enabled in Kubernetes
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploying DAM with NodeJS metrics enabled in Kubernetes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deploy-dx-including-the-dam-image-with-metrics" class="md-nav__link">
+    Deploy DX including the DAM image with metrics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-prometheus" class="md-nav__link">
+    Install Prometheus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adjust-dam-pods-to-be-scraped-by-prometheus" class="md-nav__link">
+    Adjust DAM Pods to be scraped by Prometheus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-a-test-dashboard-for-dam" class="md-nav__link">
+    Configure a test dashboard for DAM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-existing-grafana-dashboards" class="md-nav__link">
+    Using existing Grafana Dashboards
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../k8s-next-postgres-prom/" class="md-nav__link">
+        Postgres Metrics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../k8s-next-prom/" class="md-nav__link">
+        Prometheus
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" data-md-state="indeterminate" type="checkbox" id="__nav_3_7" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_7">
+          Migration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Migration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Migration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Migration/k8s-next-migrate-from-operator/" class="md-nav__link">
+        Operator migration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Migration/k8s-next-migrate-detail-core/" class="md-nav__link">
+        Operator migration - core
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Migration/k8s-next-migrate-detail-dam/" class="md-nav__link">
+        Operator migration - DAM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Migration/k8s-next-property-migration/" class="md-nav__link">
+        Operator property migration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../k8s-next-update/" class="md-nav__link">
+        Updating
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../k8s-next-undeploy/" class="md-nav__link">
+        Undeploy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../k8s-next-conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../k8s-next-helm-incubator-values/" class="md-nav__link">
+        Incubator configurations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#poc-goals" class="md-nav__link">
+    PoC Goals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prepare-application-to-expose-metrics" class="md-nav__link">
+    Prepare application to expose metrics
+  </a>
+  
+    <nav class="md-nav" aria-label="Prepare application to expose metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-prom-client-to-the-server-package" class="md-nav__link">
+    Install prom-client to the server package
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expose-metrics-endpoint" class="md-nav__link">
+    Expose metrics endpoint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-custom-metrics" class="md-nav__link">
+    Add custom metrics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploying-dam-with-nodejs-metrics-enabled-in-kubernetes" class="md-nav__link">
+    Deploying DAM with NodeJS metrics enabled in Kubernetes
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploying DAM with NodeJS metrics enabled in Kubernetes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deploy-dx-including-the-dam-image-with-metrics" class="md-nav__link">
+    Deploy DX including the DAM image with metrics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-prometheus" class="md-nav__link">
+    Install Prometheus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adjust-dam-pods-to-be-scraped-by-prometheus" class="md-nav__link">
+    Adjust DAM Pods to be scraped by Prometheus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-a-test-dashboard-for-dam" class="md-nav__link">
+    Configure a test dashboard for DAM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-existing-grafana-dashboards" class="md-nav__link">
+    Using existing Grafana Dashboards
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+  <h1>NodeJS Metrics</h1>
+
+<h2 id="poc-goals">PoC Goals</h2>
+<p>The goal is to evaluate how we can expose Prometheus compatible metrics in our NodeJS applications and expose metrics via the main NodeJS process of one of our applications. The outcome of that PoC should be documented so it can be reused for a thorough implementation in our NodeJS applications as required.</p>
+<p>For this PoC, the DAM is used as an example application. Due to the similar structure of all skeleton based NodeJS projects, the steps shown here can be re-used in other applications like RingAPI as well.</p>
+<h2 id="prepare-application-to-expose-metrics">Prepare application to expose metrics</h2>
+<h3 id="install-prom-client-to-the-server-package">Install prom-client to the server package</h3>
+<p>We use the package <a href="https://github.com/siimon/prom-client">prom-client</a> to generate Prometheus compatible metrics. This package exposes NodeJS default metrics and is also able to expose custom metrics if desired.  </p>
+<pre><code class="language-shell">cd packages/server-v1
+npm install --save prom-client
+</code></pre>
+<p>After the install is successful, the prom-client can be used.  </p>
+<h3 id="expose-metrics-endpoint">Expose metrics endpoint</h3>
+<p>The prom-client itself is only creating a Prometheus compatible data structure, but not exposing those via any HTTP endpoint.  </p>
+<p>Therefore, we create a metrics probe endpoint at the path <code>/probe/metrics</code>. Since application metrics and logging are mostly infrastructure related information, choosing this path appeared appropriate.  </p>
+<p>We create the file <code>/packages/server-v1/src/probes/metrics.probe.ts</code> with the following contents:  </p>
+<pre><code class="language-javascript">/*
+ ********************************************************************
+ * Licensed Materials - Property of HCL                             *
+ *                                                                  *
+ * Copyright HCL Technologies Ltd. 2021. All Rights Reserved.       *
+ *                                                                  *
+ * Note to US Government Users Restricted Rights:                   *
+ *                                                                  *
+ * Use, duplication or disclosure restricted by GSA ADP Schedule    *
+ ********************************************************************
+ */
+
+import { NextFunction, Request, Response } from 'express';
+import * as client from 'prom-client';
+import { loggerFactory } from '@enchanted-prod/logger';
+
+const logger = loggerFactory();
+
+client.collectDefaultMetrics({
+    gcDurationBuckets: [0.001, 0.01, 0.1, 1, 2, 5], // These are the default buckets.
+});
+
+/*
+* This probe provides prometheus consumable metrics.
+*/
+
+export class MetricsProbe {
+  public metricsProbeHandler = async (req: Request, res: Response, next: NextFunction) =&gt; {
+    logger.debug('Metric Probe is called.');
+    const reg = client.register;
+    const defaultMetrics = await reg.metrics();
+    return res.send(defaultMetrics).status(200);
+  }
+}
+</code></pre>
+<p>After that, we adjust the file <code>/packages/server-v1/src/probes/index.js</code> to also include the metrics endpoint.  </p>
+<pre><code class="language-javascript">/*
+ ********************************************************************
+ * Licensed Materials - Property of HCL                             *
+ *                                                                  *
+ * Copyright HCL Technologies Ltd. 2021. All Rights Reserved.       *
+ *                                                                  *
+ * Note to US Government Users Restricted Rights:                   *
+ *                                                                  *
+ * Use, duplication or disclosure restricted by GSA ADP Schedule    *
+ ********************************************************************
+ */
+
+export * from './ready.probe';
+export * from './live.probe';
+export * from './metrics.probe';
+
+</code></pre>
+<p>With that configured, we are now able to enable the endpoint inside the <code>/packages/server-v1/src/server.ts</code> where the other probes are already in place:  </p>
+<pre><code class="language-javascript">    const readyProbe = new ReadyProbe(this.lbApp, this.operationScheduler);
+    this.app.use('/probe/ready', readyProbe.readyProbeHandler);
+    const liveProbe = new LiveProbe();
+    this.app.use('/probe/live', liveProbe.liveProbeHandler);
+    // Expose the metrics probe endpoint
+    const metricsProbe = new MetricsProbe();
+    this.app.use('/probe/metrics', metricsProbe.metricsProbeHandler)
+    const staticUi = new StaticUi();
+</code></pre>
+<p>With that configured, the DAM Pod will now expose metrics data at <code>/probe/metrics</code>.  </p>
+<h3 id="add-custom-metrics">Add custom metrics</h3>
+<p>To expose custom metrics, we can leverage prom-client again and add custom metrics like counters or gauges.</p>
+<p>The example adds the gauge values <code>dam_active_workers</code> and <code>dam_free_workers</code> as a custom metric.</p>
+<p>Therefore we add two custom gauges in the file <code>/packages/server-v1/src/operations/scheduler.ts</code>.</p>
+<pre><code class="language-javascript">const activeWorkerGauge = new client.Gauge({ name: 'dam_active_workers', help: 'Active workers handling operations.' });
+const freeWorkerGauge = new client.Gauge({ name: 'dam_free_workers', help: 'Free workers ready for operations.' });
+</code></pre>
+<p>It contains the name of the metric, as well as a text description that will be shown as a help for the metrics values.</p>
+<p>Whenever the count of active or free workers change, we need to update the previously created gauge by setting the new value.</p>
+<pre><code class="language-javascript">  activeWorkerGauge.set(this.activeWorkers.workers.length);
+  freeWorkerGauge.set(this.freeWorkers.workers.length);
+</code></pre>
+<p>In case of DAM, we enhance the <code>activeWorkers</code> and <code>freeWorkers</code> arrays to trigger the update of the gauges themselves whenever workers are added to or removed from it.</p>
+<h2 id="deploying-dam-with-nodejs-metrics-enabled-in-kubernetes">Deploying DAM with NodeJS metrics enabled in Kubernetes</h2>
+<p>For building the image and pushing it to artifactory, a build pipeline for DAM has been used on PJT.</p>
+<h3 id="deploy-dx-including-the-dam-image-with-metrics">Deploy DX including the DAM image with metrics</h3>
+<p>The DX deployment used in this PoC is running on k3s locally and with a minimal configuration.</p>
+<p>The Helm Charts used are <code>hcl-dx-deployment-v2.0.0_20210716-1545_rohan_develop.tgz</code>.</p>
+<p>Only DAM, Core, Persistence, Image Processor, RingAPI and Ambassador are deployed, with a minimal request set of resources.</p>
+<p>The following custom values are being used for deployment:</p>
+<pre><code class="language-yaml">#********************************************************************
+#* Licensed Materials - Property of HCL                             *
+#*                                                                  *
+#* Copyright HCL Technologies Ltd. 2021. All Rights Reserved.       *
+#*                                                                  *
+#* Note to US Government Users Restricted Rights:                   *
+#*                                                                  *
+#* Use, duplication or disclosure restricted by GSA ADP Schedule    *
+#********************************************************************
+
+# Prometheus DAM PoC values, smallest deployment
+
+# Image related configuration
+images:
+  # Container repository used to retrieve the images
+  repository: &quot;quintana-docker.artifactory.cwp.pnp-hcl.com/dx-build-output&quot;
+  # Image tag for each application
+  tags:
+    core: &quot;v95_CF197_20210802-055523_rohan_develop_6107af8e&quot;
+    digitalAssetManagement: &quot;v1.9.0_20210802-1721_pjd_feature_DXQ-16661-prom-exporter-poc&quot;
+    imageProcessor: &quot;v1.10.0_20210721-1401_rohan_release_95_CF197&quot;
+    persistence: &quot;v1.10.0_20210727-1300_rohan_release_95_CF197&quot;
+    ringApi: &quot;v1.10.0_20210726-1106_rohan_develop&quot;
+    ambassadorIngress: &quot;1.5.4&quot;
+    ambassadorRedis: &quot;5.0.1&quot;
+  # Image name for each application
+  names:
+    core: &quot;core/dxen&quot;
+    digitalAssetManagement: &quot;core-addon/media-library&quot;
+    imageProcessor: &quot;core-addon/image-processor&quot;
+    persistence: &quot;core-addon/persistence/postgres&quot;
+    ringApi: &quot;core-addon/api/ringapi&quot;
+    ambassadorIngress: &quot;common/ambassador&quot;
+    ambassadorRedis: &quot;common/redis&quot;
+
+# Resource allocation settings, definition per pod
+# Use number + unit, e.g. 1500m for CPU or 1500M for Memory
+resources:
+  # Content composer resource allocation
+  contentComposer:
+    requests:
+      cpu: &quot;100m&quot;
+      memory: &quot;128Mi&quot;
+  # Core resource allocation
+  core:
+    requests:
+      cpu: &quot;1000m&quot;
+      memory: &quot;3072Mi&quot;
+  # Design Studio resource allocation
+  designStudio:
+    requests:
+      cpu: &quot;100m&quot;
+      memory: &quot;128Mi&quot;
+  # Digital asset management resource allocation
+  digitalAssetManagement:
+    requests:
+      cpu: &quot;250m&quot;
+      memory: &quot;1G&quot;
+  # Image processor resource allocation
+  imageProcessor:
+    requests:
+      cpu: &quot;100m&quot;
+      memory: &quot;1280Mi&quot;
+  # Open LDAP resource allocation
+  openLdap:
+    requests:
+      cpu: &quot;200m&quot;
+      memory: &quot;512Mi&quot;
+  # Persistence resource allocation
+  persistence:
+    requests:
+      cpu: &quot;250m&quot;
+      memory: &quot;512Mi&quot;
+  # Remote Search resource allocation
+  remoteSearch:
+    requests:
+      cpu: &quot;500m&quot;
+      memory: &quot;768Mi&quot;
+  # Ring API resource allocation
+  ringApi:
+    requests:
+      cpu: &quot;100m&quot;
+      memory: &quot;128Mi&quot;
+  # Ambassador ingress resource allocation
+  ambassadorIngress:
+    requests:
+      cpu: &quot;200m&quot;
+      memory: &quot;300Mi&quot;
+  # Ambassador Redis resource allocation
+  ambassadorRedis:
+    requests:
+      cpu: &quot;100m&quot;
+      memory: &quot;256Mi&quot;
+  # Runtime Controller resource allocation
+  runtimeController:
+    requests:
+      cpu: &quot;100m&quot;
+      memory: &quot;256Mi&quot;
+
+applications:
+  contentComposer: false
+  core: true
+  designStudio: false
+  digitalAssetManagement: true
+  imageProcessor: true
+  openLdap: false
+  persistence: true
+  remoteSearch: false
+  ringApi: true
+  ambassador: true
+  runtimeController: false
+</code></pre>
+<h3 id="install-prometheus">Install Prometheus</h3>
+<p>To install prometheus, we use Helm.</p>
+<p>Add Prometheus Helm Chart Repo to Helm:</p>
+<pre><code class="language-shell">helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+</code></pre>
+<p>We can extract the default values via Helm:</p>
+<pre><code class="language-shell">helm show values prometheus-community/prometheus &gt; prom-values.yaml
+</code></pre>
+<p>We'll use the following values for a simple PoC deployment of Prometheus, disabling persistence and additional services.</p>
+<pre><code class="language-yaml">serviceAccounts:
+  alertmanager:
+    create: false
+  nodeExporter:
+    create: false
+
+alertmanager:
+  enabled: false
+nodeExporter:
+  enabled: false
+
+server:
+  enabled: true
+  persistentVolume:
+    enabled: false
+  service:
+    type: NodePort
+
+pushgateway:
+  enabled: false
+</code></pre>
+<p>Install the Prometheus Application:</p>
+<pre><code class="language-shell">helm install prometheus prometheus-community/prometheus -n prom -f prom-values.yaml
+</code></pre>
+<p>Find the NodePort that is used and access Prometheus:</p>
+<pre><code class="language-shell">NODEPORT=$(kubectl get -o jsonpath=&quot;{.spec.ports[0].nodePort}&quot; services prometheus-server -n prom)
+echo $NODEPORT
+</code></pre>
+<p>You can now access Prometheus using your Browser:</p>
+<p><code>http://&lt;NODE_IP&gt;:&lt;NODE_PORT&gt;</code></p>
+<h3 id="adjust-dam-pods-to-be-scraped-by-prometheus">Adjust DAM Pods to be scraped by Prometheus</h3>
+<p>Add the following annotations to the DAM Pods in the StatefulSet to have Prometheus automatically scrape the metrics endpoint.</p>
+<pre><code class="language-shell">kubectl edit StatefulSet dx-digital-asset-management -n prom 
+</code></pre>
+<pre><code class="language-yaml">spec:
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: &quot;true&quot;
+        prometheus.io/path: &quot;/probe/metrics&quot;
+        prometheus.io/port: &quot;3000&quot;
+</code></pre>
+<p>The DAM Pod will be restarted shortly and Prometheus should scrape the DAM Pod.</p>
+<p><img alt="Prometheus Pod Scraping" src="../nodejs-prom-poc/prom_a.png" /></p>
+<h3 id="configure-a-test-dashboard-for-dam">Configure a test dashboard for DAM</h3>
+<p>You can use the metrics <code>dam_active_workers</code> and <code>dam_free_workers</code>.</p>
+<p>Here is a sample JSON which can be used:</p>
+<pre><code class="language-json">{
+  &quot;annotations&quot;: {
+    &quot;list&quot;: [
+      {
+        &quot;builtIn&quot;: 1,
+        &quot;datasource&quot;: &quot;-- Grafana --&quot;,
+        &quot;enable&quot;: true,
+        &quot;hide&quot;: true,
+        &quot;iconColor&quot;: &quot;rgba(0, 211, 255, 1)&quot;,
+        &quot;name&quot;: &quot;Annotations &amp; Alerts&quot;,
+        &quot;type&quot;: &quot;dashboard&quot;
+      }
+    ]
+  },
+  &quot;editable&quot;: true,
+  &quot;gnetId&quot;: null,
+  &quot;graphTooltip&quot;: 0,
+  &quot;id&quot;: null,
+  &quot;links&quot;: [],
+  &quot;panels&quot;: [
+    {
+      &quot;datasource&quot;: null,
+      &quot;fieldConfig&quot;: {
+        &quot;defaults&quot;: {
+          &quot;color&quot;: {
+            &quot;mode&quot;: &quot;palette-classic&quot;
+          },
+          &quot;custom&quot;: {
+            &quot;axisLabel&quot;: &quot;&quot;,
+            &quot;axisPlacement&quot;: &quot;auto&quot;,
+            &quot;barAlignment&quot;: 0,
+            &quot;drawStyle&quot;: &quot;line&quot;,
+            &quot;fillOpacity&quot;: 0,
+            &quot;gradientMode&quot;: &quot;none&quot;,
+            &quot;hideFrom&quot;: {
+              &quot;legend&quot;: false,
+              &quot;tooltip&quot;: false,
+              &quot;viz&quot;: false
+            },
+            &quot;lineInterpolation&quot;: &quot;linear&quot;,
+            &quot;lineWidth&quot;: 1,
+            &quot;pointSize&quot;: 5,
+            &quot;scaleDistribution&quot;: {
+              &quot;type&quot;: &quot;linear&quot;
+            },
+            &quot;showPoints&quot;: &quot;auto&quot;,
+            &quot;spanNulls&quot;: false,
+            &quot;stacking&quot;: {
+              &quot;group&quot;: &quot;A&quot;,
+              &quot;mode&quot;: &quot;none&quot;
+            },
+            &quot;thresholdsStyle&quot;: {
+              &quot;mode&quot;: &quot;off&quot;
+            }
+          },
+          &quot;mappings&quot;: [],
+          &quot;thresholds&quot;: {
+            &quot;mode&quot;: &quot;absolute&quot;,
+            &quot;steps&quot;: [
+              {
+                &quot;color&quot;: &quot;green&quot;,
+                &quot;value&quot;: null
+              },
+              {
+                &quot;color&quot;: &quot;red&quot;,
+                &quot;value&quot;: 80
+              }
+            ]
+          }
+        },
+        &quot;overrides&quot;: [
+          {
+            &quot;__systemRef&quot;: &quot;hideSeriesFrom&quot;,
+            &quot;matcher&quot;: {
+              &quot;id&quot;: &quot;byNames&quot;,
+              &quot;options&quot;: {
+                &quot;mode&quot;: &quot;exclude&quot;,
+                &quot;names&quot;: [
+                  &quot;dam_free_workers{app=\&quot;dx-digital-asset-management\&quot;, app_kubernetes_io_instance=\&quot;dx\&quot;, app_kubernetes_io_managed_by=\&quot;Helm\&quot;, app_kubernetes_io_name=\&quot;hcl-dx-deployment\&quot;, app_kubernetes_io_version=\&quot;95_CF197\&quot;, controller_revision_hash=\&quot;dx-digital-asset-management-554ccc9d7b\&quot;, helm_sh_chart=\&quot;hcl-dx-deployment-2.0.0\&quot;, instance=\&quot;10.42.0.75:3000\&quot;, job=\&quot;kubernetes-pods\&quot;, kubernetes_namespace=\&quot;prom\&quot;, kubernetes_pod_name=\&quot;dx-digital-asset-management-0\&quot;, release=\&quot;dx\&quot;, statefulset_kubernetes_io_pod_name=\&quot;dx-digital-asset-management-0\&quot;}&quot;
+                ],
+                &quot;prefix&quot;: &quot;All except:&quot;,
+                &quot;readOnly&quot;: true
+              }
+            },
+            &quot;properties&quot;: [
+              {
+                &quot;id&quot;: &quot;custom.hideFrom&quot;,
+                &quot;value&quot;: {
+                  &quot;legend&quot;: false,
+                  &quot;tooltip&quot;: false,
+                  &quot;viz&quot;: true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      &quot;gridPos&quot;: {
+        &quot;h&quot;: 8,
+        &quot;w&quot;: 12,
+        &quot;x&quot;: 0,
+        &quot;y&quot;: 0
+      },
+      &quot;id&quot;: 4,
+      &quot;options&quot;: {
+        &quot;legend&quot;: {
+          &quot;calcs&quot;: [],
+          &quot;displayMode&quot;: &quot;list&quot;,
+          &quot;placement&quot;: &quot;bottom&quot;
+        },
+        &quot;tooltip&quot;: {
+          &quot;mode&quot;: &quot;single&quot;
+        }
+      },
+      &quot;targets&quot;: [
+        {
+          &quot;exemplar&quot;: true,
+          &quot;expr&quot;: &quot;dam_free_workers&quot;,
+          &quot;interval&quot;: &quot;&quot;,
+          &quot;legendFormat&quot;: &quot;&quot;,
+          &quot;refId&quot;: &quot;A&quot;
+        }
+      ],
+      &quot;title&quot;: &quot;DAM Free Workers&quot;,
+      &quot;type&quot;: &quot;timeseries&quot;
+    },
+    {
+      &quot;datasource&quot;: null,
+      &quot;description&quot;: &quot;&quot;,
+      &quot;fieldConfig&quot;: {
+        &quot;defaults&quot;: {
+          &quot;color&quot;: {
+            &quot;mode&quot;: &quot;palette-classic&quot;
+          },
+          &quot;custom&quot;: {
+            &quot;axisLabel&quot;: &quot;&quot;,
+            &quot;axisPlacement&quot;: &quot;auto&quot;,
+            &quot;barAlignment&quot;: 0,
+            &quot;drawStyle&quot;: &quot;line&quot;,
+            &quot;fillOpacity&quot;: 0,
+            &quot;gradientMode&quot;: &quot;none&quot;,
+            &quot;hideFrom&quot;: {
+              &quot;legend&quot;: false,
+              &quot;tooltip&quot;: false,
+              &quot;viz&quot;: false
+            },
+            &quot;lineInterpolation&quot;: &quot;linear&quot;,
+            &quot;lineWidth&quot;: 1,
+            &quot;pointSize&quot;: 5,
+            &quot;scaleDistribution&quot;: {
+              &quot;type&quot;: &quot;linear&quot;
+            },
+            &quot;showPoints&quot;: &quot;auto&quot;,
+            &quot;spanNulls&quot;: false,
+            &quot;stacking&quot;: {
+              &quot;group&quot;: &quot;A&quot;,
+              &quot;mode&quot;: &quot;none&quot;
+            },
+            &quot;thresholdsStyle&quot;: {
+              &quot;mode&quot;: &quot;off&quot;
+            }
+          },
+          &quot;mappings&quot;: [],
+          &quot;thresholds&quot;: {
+            &quot;mode&quot;: &quot;absolute&quot;,
+            &quot;steps&quot;: [
+              {
+                &quot;color&quot;: &quot;green&quot;,
+                &quot;value&quot;: null
+              },
+              {
+                &quot;color&quot;: &quot;red&quot;,
+                &quot;value&quot;: 80
+              }
+            ]
+          }
+        },
+        &quot;overrides&quot;: []
+      },
+      &quot;gridPos&quot;: {
+        &quot;h&quot;: 8,
+        &quot;w&quot;: 12,
+        &quot;x&quot;: 0,
+        &quot;y&quot;: 8
+      },
+      &quot;id&quot;: 2,
+      &quot;options&quot;: {
+        &quot;legend&quot;: {
+          &quot;calcs&quot;: [],
+          &quot;displayMode&quot;: &quot;list&quot;,
+          &quot;placement&quot;: &quot;bottom&quot;
+        },
+        &quot;tooltip&quot;: {
+          &quot;mode&quot;: &quot;single&quot;
+        }
+      },
+      &quot;targets&quot;: [
+        {
+          &quot;exemplar&quot;: true,
+          &quot;expr&quot;: &quot;dam_active_workers&quot;,
+          &quot;interval&quot;: &quot;&quot;,
+          &quot;legendFormat&quot;: &quot;&quot;,
+          &quot;refId&quot;: &quot;A&quot;
+        }
+      ],
+      &quot;title&quot;: &quot;DAM Active Workers&quot;,
+      &quot;type&quot;: &quot;timeseries&quot;
+    }
+  ],
+  &quot;refresh&quot;: &quot;10s&quot;,
+  &quot;schemaVersion&quot;: 30,
+  &quot;style&quot;: &quot;dark&quot;,
+  &quot;tags&quot;: [],
+  &quot;templating&quot;: {
+    &quot;list&quot;: []
+  },
+  &quot;time&quot;: {
+    &quot;from&quot;: &quot;now-15m&quot;,
+    &quot;to&quot;: &quot;now&quot;
+  },
+  &quot;timepicker&quot;: {},
+  &quot;timezone&quot;: &quot;&quot;,
+  &quot;title&quot;: &quot;New dashboard&quot;,
+  &quot;uid&quot;: null,
+  &quot;version&quot;: 0
+}
+</code></pre>
+<p>The output looks like this:</p>
+<p><img alt="Grafana Graph" src="../nodejs-prom-poc/grafana_b.png" /></p>
+<h3 id="using-existing-grafana-dashboards">Using existing Grafana Dashboards</h3>
+<p>There are also existing Grafana dashboards that can be leveraged.</p>
+<p>One that is related to NodeJS and <code>prom-client</code> can be found here <a href="https://grafana.com/grafana/dashboards/11159">Grafana Dashboard 11159</a>.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The use of <code>prom-client</code> enables us to easily expose default NodeJS metrics as well as custom applications metrics that are bound to our application logic. The implementation is straight forward and the main effort lies within defining metrics that should be exposed.</p>
+<p>We will need to adjust our Helm charts to add the necessary annotations to all application Pods that expose metrics for prometheus. With that, prometheus will automatically scrape those applications and aggregate the metrics data.</p>
+<p>The NodeJS default metrics also allow for in-depth analysis on performance issues, that can be seen in monitoring of the NodeJS runtime.</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+ 
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.expand", "search.highlight", "search.share", "search.suggest"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.0bbba5b5.min.js", "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e1a181d9.min.js"></script>
+      
+    
+  </body>
+</html>
