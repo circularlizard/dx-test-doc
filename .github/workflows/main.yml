@@ -31,8 +31,8 @@ jobs:
           python-version: 3.x
       - run: pip install mkdocs-material
       - run: pip install mkdocs-awesome-pages-plugin
+      - run: pip install mike
       - run: |
           git config --global user.name circularlizard deploy
           git config --global user.email docs@dummy.bot.com
-      - run: pip install mike
-      - run: mike deploy 2
+      - run: mike deploy 1
