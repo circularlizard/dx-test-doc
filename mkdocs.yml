@@ -22,6 +22,11 @@ plugins:
   - awesome-pages
   - search
   - git-revision-date
+  - i18n:
+      default_language: en
+      languages:
+        en: English
+        fr: Français
   - mike:
       version_selector: true
 copyright: Copyright &copy; HCL, 2021
