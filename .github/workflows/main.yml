@@ -31,18 +31,18 @@ jobs:
 
       # Build and publish the site
       - uses: actions/setup-python@v2
-          with:
-            python-version: 3.x
-            - name: Set release notes tag
-      - run: |
-          export RELEASE_TAG_VERSION=${{ github.event.release.tag_name }}
-          echo "RELEASE_TAG_VERSION=${RELEASE_TAG_VERSION:1}" >> $GITHUB_ENV
+        with:
+          python-version: 3.x
       - run: pip install mkdocs-material
       - run: pip install mkdocs-awesome-pages-plugin
       - run: pip install mike
+      - name: Set release notes tag
+        run: |
+          export RELEASE_TAG_VERSION=${{ github.event.release.tag_name }}
+          echo "RELEASE_TAG_VERSION=${RELEASE_TAG_VERSION:1}" >> $GITHUB_ENV
       - run: |
           git fetch origin gh-pages --depth=1
           git config --global user.name circularlizard
           git config --global user.email david.strachan@mac.com
       - run: |
-          mike deploy -u ${RELEASE_TAG_VERSION} latest --push
+          mike deploy -u ${RELEASE_TAG_VERSION}latest --push
