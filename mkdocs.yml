@@ -28,7 +28,3 @@ copyright: Copyright &copy; HCL, 2021
 extra:
   version:
     provider: mike
-  alternate:
-    - name: Français
-      link: /fr/
-      lang: fr
