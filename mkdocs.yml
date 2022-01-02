@@ -13,9 +13,14 @@ theme:
     - search.share
     - search.suggest
   custom_dir: theme_overrides/
+  icon:
+    repo: fontawesome/brands/github
+repo_url: https://github.com/circularlizard/test-dx-doc
+repo_name: circularlizard/test-dx-doc
 plugins:
   - awesome-pages
   - search
+  - git-revision-date
   - mike:
       version_selector: true
 copyright: Copyright &copy; HCL, 2021
