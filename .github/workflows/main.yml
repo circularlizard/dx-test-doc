@@ -36,15 +36,13 @@ jobs:
       - run: pip install mkdocs-material
       - run: pip install mkdocs-awesome-pages-plugin
       - run: pip install mike
-      - name: Setup release variable
-        run: |
-          export RELEASE_TAG_VERSION=${{ github.event.release.tag_name }}
-          echo "RELEASE_TAG_VERSION=${RELEASE_TAG_VERSION:1}" >> $GITHUB_ENV
       - name: Setup Git environment
         run: |
           git fetch origin gh-pages --depth=1
           git config --global user.name circularlizard
           git config --global user.email david.strachan@mac.com
       - name: Run Mike deploy
+        env: 
+          RELEASE_TAG_VERSION: ${{ github.event.release.tag_name }}
         run: |
           mike deploy -u ${RELEASE_TAG_VERSION} latest --push
