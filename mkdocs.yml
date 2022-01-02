@@ -1,4 +1,5 @@
 site_name: DX Test Site
+site_url: 
 theme:
   name: material
   logo: assets/dx_logo.png
@@ -27,3 +28,7 @@ copyright: Copyright &copy; HCL, 2021
 extra:
   version:
     provider: mike
+  alternate:
+    - name: Français
+      link: /fr/
+      lang: fr
