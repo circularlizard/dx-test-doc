@@ -1,0 +1,2386 @@
+<!-- Elements added to main will be displayed on all pages -->
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.2">
+    
+    
+      
+        <title>Hybrid deployment - Operator - DX Test Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.f7951f6f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hybrid-deployment-operator" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        <aside class="md-banner md-banner--warning">
+          
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  You're not viewing the latest version.
+  <a href="../../../.."> 
+
+
+    <strong>Click here to go to latest.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          
+        </aside>
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../.." title="DX Test Site" class="md-header__button md-logo" aria-label="DX Test Site" data-md-component="logo">
+      
+  <img src="../../../assets/dx_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DX Test Site
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Hybrid deployment - Operator
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Sélectionner la langue">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="../../../" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
+                  <a href="../../" hreflang="fr" class="md-select__link">
+                    Français
+                  </a>
+                </li>
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Effacer" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/circularlizard/test-dx-doc/" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    circularlizard/test-dx-doc
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../" class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../what%27s-new/new_cf17/" class="md-tabs__link">
+        What's new
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../kube/" class="md-tabs__link">
+        Kube
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../c_kubesupportstatement/" class="md-tabs__link md-tabs__link--active">
+        Containerization
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="DX Test Site" class="md-nav__button md-logo" aria-label="DX Test Site" data-md-component="logo">
+      
+  <img src="../../../assets/dx_logo.png" alt="logo">
+
+    </a>
+    DX Test Site
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/circularlizard/test-dx-doc/" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    circularlizard/test-dx-doc
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          What's new
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="What's new" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          What's new
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/new_cf17/" class="md-nav__link">
+        What's new in CF17?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/new_cf171/" class="md-nav__link">
+        What's new in CF171? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/new_cf172/" class="md-nav__link">
+        What's new in CF172? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/new_cf173/" class="md-nav__link">
+        What's new in CF173? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/new_cf18/" class="md-nav__link">
+        What's new in CF18? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/new_noncf18/" class="md-nav__link">
+        What's new in CF18?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf182/" class="md-nav__link">
+        What's new in CF182? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf183/" class="md-nav__link">
+        What's new in CF183? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf184/" class="md-nav__link">
+        What's new in CF184? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf19/" class="md-nav__link">
+        What's new in CF19? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/new_noncf19/" class="md-nav__link">
+        What's new with CF19?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf191/" class="md-nav__link">
+        What's new in CF191? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf192/" class="md-nav__link">
+        What's new in CF192? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf193/" class="md-nav__link">
+        What's new in CF193? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf194/" class="md-nav__link">
+        What's new in CF194? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf195/" class="md-nav__link">
+        What's new in CF195? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf196/" class="md-nav__link">
+        What's new in CF196? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/new_noncf196/" class="md-nav__link">
+        What's new in CF196?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf197/" class="md-nav__link">
+        What's new in CF197? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/new_noncf197/" class="md-nav__link">
+        What's new with CF197?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf198/" class="md-nav__link">
+        What's new in CF198? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/new_noncf198/" class="md-nav__link">
+        What's new with CF198?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf199/" class="md-nav__link">
+        What's new in CF199? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/new_noncf199/" class="md-nav__link">
+        What's new with CF199?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/new_cf181/" class="md-nav__link">
+        What's new in CF181? Containers
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../kube/">Kube</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Kube" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Kube
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kube/k8s-next-deploy/" class="md-nav__link">
+        Deployment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kube/k8s-next-operation/" class="md-nav__link">
+        Operations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kube/k8s-next-runtime-log-levels/" class="md-nav__link">
+        Runtime log levels
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kube/k8s-next-runtime-log-levels-dbha/" class="md-nav__link">
+        Runtime log levels - DBHA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" data-md-state="indeterminate" type="checkbox" id="__nav_3_6" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Prometheus
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Prometheus" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Prometheus
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kube/Prometheus/k8s-next-nodejs-prom/" class="md-nav__link">
+        NodeJS Metrics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kube/Prometheus/k8s-next-postgres-prom/" class="md-nav__link">
+        Postgres Metrics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kube/Prometheus/k8s-next-prom/" class="md-nav__link">
+        Prometheus
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" data-md-state="indeterminate" type="checkbox" id="__nav_3_7" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_7">
+          Migration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Migration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Migration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kube/Migration/k8s-next-migrate-from-operator/" class="md-nav__link">
+        Operator migration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kube/Migration/k8s-next-migrate-detail-core/" class="md-nav__link">
+        Operator migration - core
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kube/Migration/k8s-next-migrate-detail-dam/" class="md-nav__link">
+        Operator migration - DAM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kube/Migration/k8s-next-property-migration/" class="md-nav__link">
+        Operator property migration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kube/k8s-next-update/" class="md-nav__link">
+        Updating
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kube/k8s-next-undeploy/" class="md-nav__link">
+        Undeploy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kube/k8s-next-conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kube/k8s-next-helm-incubator-values/" class="md-nav__link">
+        Incubator configurations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kube/mapage/" class="md-nav__link">
+        ma Page en French
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Containerization
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Containerization" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Containerization
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c_kubesupportstatement/" class="md-nav__link">
+        Platform support matrix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" data-md-state="indeterminate" type="checkbox" id="__nav_4_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Helm
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Helm" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Helm
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../helm/helm_deployment/" class="md-nav__link">
+        Deploying container platforms using Helm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../helm/helm_update_deployment/" class="md-nav__link">
+        Update deployment to a later version
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure_aks/" class="md-nav__link">
+        Deploy DX Container to Microsoft Azure Kubernetes Service \(AKS\)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container_init_performance/" class="md-nav__link">
+        HCL Digital Experience 9.5 Docker and Container initialization performance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../customizing_container_deployment/" class="md-nav__link">
+        Customizing the container deployment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cw_containerdbtransfer_ibm_db2/" class="md-nav__link">
+        Transfer HCL Digital Experience 9.5 container default database to IBM DB2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dam_subscription_staging/" class="md-nav__link">
+        DAM staging
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../damschemas/" class="md-nav__link">
+        DAM schemas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy_container_platforms/" class="md-nav__link">
+        Operator-based deployment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy_dx_components_using_hcl_dx_client_and_dx_connect/" class="md-nav__link">
+        Deploy DX components using HCL DXClient and DXConnect
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        Digital Experience on containerized platforms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker/" class="md-nav__link">
+        Docker image list
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker_compose/" class="md-nav__link">
+        Docker image deployment using Docker Compose
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker_image_deployment/" class="md-nav__link">
+        Docker image deployment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dxclient/" class="md-nav__link">
+        DXClient
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dxconnect/" class="md-nav__link">
+        DXConnect
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dxcoreserver/" class="md-nav__link">
+        DX Core server
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dxtools_dxctl/" class="md-nav__link">
+        dxctl
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../google_gke/" class="md-nav__link">
+        Deploying HCL Digital Experience Containers to Google Kubernetes Engine \(GKE\)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Hybrid deployment - Operator
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Hybrid deployment - Operator
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enabling-hybrid-deployment-support-in-the-hcl-digital-experience-95-on-premises-environment" class="md-nav__link">
+    Enabling Hybrid Deployment support in the HCL Digital Experience 9.5 on-premises environment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploy-using-the-dxctl-tool" class="md-nav__link">
+    Deploy using the dxctl tool
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validate-the-deployment" class="md-nav__link">
+    Validate the Deployment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-content-composer-and-digital-asset-management" class="md-nav__link">
+    Enable Content Composer and Digital Asset Management
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install_config_cc_dam/" class="md-nav__link">
+        Install the HCL Digital Experience 9.5 components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes_remote_search/" class="md-nav__link">
+        Configure Remote Search in OpenShift and Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../limitations_requirements/" class="md-nav__link">
+        Containerization requirements and limitations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openshift/" class="md-nav__link">
+        Deploy DX 9.5 Container to Red Hat OpenShift
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_25" data-md-state="indeterminate" type="checkbox" id="__nav_4_25" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_25">
+          Amazon EKS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Amazon EKS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_25">
+          <span class="md-nav__icon md-icon"></span>
+          Amazon EKS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Amazon%20EKS/customizing_kubernetes_eks_deployment/" class="md-nav__link">
+        Customizing the Kubernetes EKS deployment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Amazon%20EKS/kubernetes_eks/" class="md-nav__link">
+        Deploy DX Container to Amazon EKS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Amazon%20EKS/kubernetes_eks_cf191andearlier/" class="md-nav__link">
+        Deploy DX CF191 and earlier release Containers to Amazon EKS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Amazon%20EKS/kubernetes_eks_cf192andlater/" class="md-nav__link">
+        Deploy DX CF192 and later release Containers to Amazon EKS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_26" data-md-state="indeterminate" type="checkbox" id="__nav_4_26" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../Management/">Management</a>
+          
+            <label for="__nav_4_26">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Management" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_26">
+          <span class="md-nav__icon md-icon"></span>
+          Management
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Management/REST_APIs_remote_search/" class="md-nav__link">
+        Configure Remote Search using REST APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Management/credentialvaultslot/" class="md-nav__link">
+        Create or update credential vault slot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Management/deployapplication/" class="md-nav__link">
+        Digital Experience applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Management/personalization/" class="md-nav__link">
+        Personalization rules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Management/portlets/" class="md-nav__link">
+        Portlets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Management/resourceenvironments/" class="md-nav__link">
+        Resource environment provider
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Management/sample_storage_class_volume/" class="md-nav__link">
+        Sample storage class and volume for HCL Digital Experience 9.5 containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Management/scriptapplications/" class="md-nav__link">
+        Script applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Management/sharedlibrary/" class="md-nav__link">
+        Shared library
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Management/syndicatorsandsubscribers/" class="md-nav__link">
+        Managing Web Content Syndicators and Subscribers using DXClient
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Management/t_customize_dx_url/" class="md-nav__link">
+        Customizing the HCL DX URL when deployed to container platforms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Management/themes/" class="md-nav__link">
+        Themes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Management/update_dx_core_kubernetes_container_deployment/" class="md-nav__link">
+        Update the Digital Experience 9.5 Core Kubernetes or Red Hat OpenShift container deployment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Management/virtualportals/" class="md-nav__link">
+        Managing virtual portals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Management/xmlaccess/" class="md-nav__link">
+        XML Access
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enabling-hybrid-deployment-support-in-the-hcl-digital-experience-95-on-premises-environment" class="md-nav__link">
+    Enabling Hybrid Deployment support in the HCL Digital Experience 9.5 on-premises environment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploy-using-the-dxctl-tool" class="md-nav__link">
+    Deploy using the dxctl tool
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validate-the-deployment" class="md-nav__link">
+    Validate the Deployment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-content-composer-and-digital-asset-management" class="md-nav__link">
+    Enable Content Composer and Digital Asset Management
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/circularlizard/test-dx-doc/edit/master/docs/containerization/hybrid_deployment_operator.md" title="Editer cette page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="hybrid-deployment-operator">Hybrid deployment - Operator</h1>
+<p>This section describes how to install HCL Digital Experience 9.5 Portal Server and Web Content Manager services to on-premises platforms, operating with Digital Asset Management, Content Composer, Experience API deployed to cloud-based Kubernetes and OpenShift platforms deployed using the Operator (dxctl) method.</p>
+<p>Many organizations are using cloud and containerized deployments as part of their overall systems environments. In parallel, organizations continue to operate software applications and processes on-premises. The HCL Digital Experience 9.5 Hybrid deployment reference architecture and topics describe an approach to deploy and manage HCL Digital Experience 9.5 core Portal Server and Web Content Manager services on premises, and connect to cloud native components Digital Asset Management, Content Composer, Experience API and related services in a production environment.</p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>The hybrid deployment of cloud-based components HCL Digital Asset Management, Content Composer, and Experience API is supported on Red Hat OpenShift with the HCL DX 9.5 CF19 release. It is not yet supported with an on-premises clustered environment. The HCL DX hybrid deployment model will be supported on additional Kubernetes platforms in later release updates.</li>
+<li>Virtual Portal support with Content Composer is not yet supported. Support for this component in a virtual portal deployment model will be available in later releases.</li>
+</ul>
+<p><img alt="HCL Digital Experience Hybrid On-premises and Cloud components deployment                         " src="../assets/HCL_Digital_Experience_Hybrid_On-premises_and_Cloud_components_deployment.png" title="Topology - HCL Digital Experience Hybrid On-premises and Cloud components                         deployment" /></p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>HCL Digital Experience V9.5 CF19 or higher is deployed to supported on-premises platforms, in a standalone, cluster, or farm topology. See the <a href="../../9.5/install/deployment_patterns.html">Roadmaps to deploy your Digital Experience 9.5 system</a> topic for more information.</li>
+<li>Practitioner Studio has been enabled in the Digital Experience 9.5 CF19 or higher installation. See the <a href="../../9.5/practitioner_studio/enable_prac_studio.html">How to enable Practitioner Studio</a> topic for instructions.</li>
+<li>A common domain, using an SSL connection, is established for both the on premise HCL DX 9.5 CF19 and higher on-premises environment, and the target Red Hat Open Shift platform deployment to contain cloud native components HCL DX Experience API, Digital Asset Management and Content Composer. For example, mytargetcloud.dx.com and myonprem.dx.com would have the same domain: dx.com.</li>
+<li>Single sign-on must be enabled on HCL DX 9.5 CF19 or higher on-premises environment. On DMGR or WAS Admin console under <strong>Security</strong> > <strong>Global Security</strong> > <strong>Web &amp; SIP Security</strong> > <strong>Single Sign-On</strong>, <strong>Enabled</strong> is checked and <strong>Domain name</strong> is set to common domain. For example, dx.com.</li>
+<li>A high-performance network connection is established between the HCL DX 9.5 CF19 and higher on-premises environment, and the target DX Red Hat Open Shift platform deployment.</li>
+<li>dxctl tool.</li>
+<li><strong>Volume Requirement</strong>: Requires an AccessMode of ReadWriteMany. Reference the <a href="../../9.5/containerization/sample_storage_class_volume.html">Storage Class and Volume</a> topic for more information.</li>
+</ul>
+<p>Ensure you have obtained a backup of the HCL DX 9.5 on-premises deployment. See the <a href="../admin-system/i_wadm_c_bkup_restr_winlinux.html">Backup and Restore</a> topic for additional information.</p>
+<h2 id="enabling-hybrid-deployment-support-in-the-hcl-digital-experience-95-on-premises-environment">Enabling Hybrid Deployment support in the HCL Digital Experience 9.5 on-premises environment</h2>
+<p>Follow the steps below to enable Hybrid deployment support in the HCL Digital Experience 9.5 on-premises environment.</p>
+<ol>
+<li>
+<p>Access the latest HCL DX 9.5 CF19 or higher release software from the <a href="https://hclsoftware.flexnetoperations.com/flexnet/operationsportal/logon.do">HCL Software License Portal</a>.</p>
+<p>The package will include the file hcl-dx-cloud-scripts, which should be downloaded and extracted to your local system. This will present the following deploy, dxctl and scripts directories as shown below:</p>
+<p><img alt="Download and configure the DXCTL tool" src="../assets/Download_and_configure_DXCTL_tool.png" /></p>
+</li>
+<li>
+<p>Configure Properties of the dxctl tool.</p>
+<p>Navigate to the dxctl/properties directory and open the hybrid-deployment.properties file in your favorite editor.</p>
+<p><img alt="Configure Properties of the DXCTL tool" src="../assets/Configure_DXCTL_tool_Properties.png" /></p>
+<p>Sample properties for deploying Digital Asset Management, Content Composer, and the Experience API for use with an on-premise DX environment are shown below. Use following example to modify the values in the dxctl/properties/hybrid-deployment.properties file to reflect your target Red Hat Open Shift environment to deploy the Content Composer, Digital Asset Management, and the Experience API components.</p>
+<p><strong>Note:</strong> For a Hybrid deployment, the following items should be enabled and/or not included in the deployment:</p>
+<ul>
+<li>
+<p><strong>Enable</strong></p>
+<p><code>api.enabled(eAPI), composer.enabled(Content Composer)</code> and/or <code>dam.enabled(DAM)</code> to true.</p>
+</li>
+<li>
+<p><strong>Not included</strong></p>
+<p><strong><code>**dx.tag**</code></strong></p>
+<p>This is not required for a hybrid deployment as DX Portal and WCM is installed on premises.</p>
+<p><strong><code>**dx.database**</code></strong></p>
+<p>This is not required for a hybrid deployment as it is installed with DX Portal and WCM on premises.</p>
+</li>
+</ul>
+<p>See the <em>Reference list</em> below for explanations of the file items.</p>
+<p><code>dx.namespace: dxhybwin
+dx.config.cors: https://portal-dxhybwin.apps.dxdev.dx-dev.net:10042
+hybrid.enabled: true
+hybrid.host: portal-dxhybwin.apps.dxdev.dx-dev.net
+hybrd.port: 10042
+api.enabled: true
+api.tag: v1.3.0_20201019-1240_develop
+composer.enabled: true
+composer.tag: v1.3.0_20201019-1239_develop
+dam.enabled: true
+dam.volume: dxhybwin-dam
+dam.stgclass: dx-deploy-stg
+dam.tag: v1.3.0_20201019-1259_develop
+imgproc.tag: v1.3.0_20201015-1133_develop
+override.ingress.host: dx-hybrid-service-dxhybwin-dxhybwin.apps.hcl-dxdev.dx-dev.net
+dam.operator.tag: v95_CF19_20201020_dev_build</code></p>
+<p><strong>Reference list</strong>:</p>
+<ul>
+<li><code>dx.namespace</code> - The project or the namespace to create or use for deployment.</li>
+<li><code>dx.tag</code> - Tag of the latest DX HCL DX 9.5 Portal and Web Content Manager image.</li>
+<li><code>dx.database</code> - By default, and initially, this is Derby. HCL DX 9.5 supports Apache Derby, Oracle Database, IBM DB2, or Microsoft SQL Server. Acceptable values are <code>derby</code>, <code>oracle</code>, <code>db2</code>, or <code>msSql</code>.</li>
+<li><code>dx.config.cors</code> - URL of the on-premises HCL DX 9.5 CF19 or higher Portal and Web Content Manager server.</li>
+<li><code>hybrid.enabled</code> - Boolean value to enable/disable.</li>
+<li><code>hybrid.host</code> - URL of On-premises DX 9.5 Portal and Web Content Manager server without port.</li>
+<li><code>hybrd.port</code> - Port of the on-premises HCL DX 9.5 CF19 or higher Portal and Web Content Manager server.</li>
+<li><code>api.enabled</code> - Boolean value to enable/disable the Experience API.</li>
+<li><code>api.tag</code> - Tag of the your Experience API image.</li>
+<li><code>composer.enabled</code> - Boolean value to enable/disable Content Composer.</li>
+<li><code>composer.tag</code> - Tag of the latest Content Composer image.</li>
+<li><code>dam.enabled</code> - Boolean value to enable/disable Digital Asset Management.</li>
+<li><code>dam.volume</code> - Volume for Digital Asset Management.</li>
+<li><code>dam.stgclass</code> - Storage class for Digital Asset Management.</li>
+<li><code>dam.tag</code> - Tag of your Digital Asset Management image.</li>
+<li><code>imgproc.tag</code> - Tag of your Image-Processor image.</li>
+<li><code>override.ingress.host</code> - Generated base URL of the route.</li>
+<li><code>dx.operator.tag</code> - Tag of your hcldx-cloud-operator image.</li>
+<li><code>dam.operator.tag</code> - Tag of your <code>Docker hcl-dam-operator</code> tag.</li>
+</ul>
+</li>
+</ol>
+<h2 id="deploy-using-the-dxctl-tool">Deploy using the dxctl tool</h2>
+<ol>
+<li>
+<p>Login to the Red Hat OpenShift platform using Kubectl.</p>
+<p>Log in to the target Red Hat OpenShift platform using the following OpenShift command:</p>
+<p><code>$ oc login</code></p>
+<p>Enter your username and password in response to system prompts. See the example below:</p>
+<p><img alt="Login to the Red Hat OpenShift platform using Kubectl                                     " src="../assets/Login_to_Red_Hat_OpenShift_platform_using_Kubectl.png" /></p>
+</li>
+<li>
+<p>Deploy using dxctl.</p>
+<p>On your local workstation, navigate to the dxctl folder:</p>
+<p><code>$ cd ./hcl-dx-cloud-scripts/dxctl</code></p>
+<p>Execute the below command to deploy from the local workstation to the target Red Hat OpenShift platform to contain the HCL DX 9.5 CF19 and higher cloud native components using the dxctl tool based on configured properties:</p>
+<ul>
+<li>
+<p>From a MacOS workstation:</p>
+<p><code>MacBook-Pro:macuser$ ./mac/dxctl --deploy -p properties/hybrid-deployment.properties</code></p>
+</li>
+<li>
+<p>From a Windows workstation:</p>
+<p><code>Cmd&gt; ./win/dxctl -–deploy -p properties/hybrid-deployment.properties</code></p>
+<p><strong>Note:</strong> On Windows 10 MD and PowerShell, rename the dxctl file to dxctl.exe and run the deploy command.</p>
+</li>
+<li>
+<p>From a Linux workstation:</p>
+<p><code>$ ./linux/dxctl –deploy -p properties/hybrid-deployment.properties</code></p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="validate-the-deployment">Validate the Deployment</h2>
+<ol>
+<li>
+<p>Login to the Red Hat OpenShift Console.</p>
+<p>Login to OpenShift Dashboard Console with your credentials:</p>
+<p><img alt="Validate DXCTL deployment" src="../assets/Validate_DXCTL_deployment.png" /></p>
+<p>Once logged in, search for the HCL DX 9.5 project:</p>
+<p><img alt="Search for the HCL DX 9.5 project" src="../assets/search_for_the_HCL_DX_9.5_project.png" /></p>
+<p>Ensure the deployment and pods are running and in a ready state.</p>
+<p><img alt="Ensure the deployment and pods are running and in a ready state" src="../assets/Ensure_deployment_and_pods_are_running_and_in_ready_state.png" /></p>
+</li>
+<li>
+<p>Access the HCL Digital Experience 9.5 on-premises server.</p>
+<p>Access the host URL of the HCL Digital Experience 9.5 on-premises deployment, which is defined in the hybrid-deployment.properties file and add the path below to the URL: /wps/myportal.</p>
+<p><img alt="Access the HCL Digital Experience 9.5 on-premises server" src="../assets/Access_HCL_DX_95_on_premises_server.png" title="Example -                                         https://hosturl:port/wps/myportal" /></p>
+<p>Login to the HCL DX 9.5 on-premises deployment using your appropriate credentials.</p>
+<p><img alt="Login to the HCL DX 9.5 on-premises deployment using your appropriate credentials" src="../assets/Login_to_HCL_DX_deployment.png" /></p>
+<p>Once logged in, click the <strong>Open Applications Menu</strong> in the right top corner.</p>
+<p><img alt="Open Applications Menu" src="../assets/Open_Applications_Menu.png" /></p>
+<p>If the <strong>Web Content</strong> and <strong>Digital Assets</strong> menu items do not appear in the menu selections, follow the steps below to enable Content Composer and Digital Asset Management using the Configuration Engine.</p>
+</li>
+</ol>
+<h2 id="enable-content-composer-and-digital-asset-management">Enable Content Composer and Digital Asset Management</h2>
+<ol>
+<li>
+<p>Locate the Content Composer and Digital Asset Management URLs.</p>
+<p>The URLs will match the location values of the Red Hat OpenShift route of the component.</p>
+<p>Copy the Content Composer and Digital Asset Management URL from the Red Hat OpenShift dashboard console and add the suffix/static as in the example below:</p>
+<p><img alt="Locate the Content Composer and Digital Asset Management URLs" src="../assets/Locate_Content_Composer_and_Digital_Asset_Management_URLs.png" /></p>
+<ul>
+<li><strong>Content Composer – Content UI URL Example</strong>: https://dx-hybrid-service-dxhybwin-dxhybwin.apps.comp-dxdev.hcl-dx-dev.net/dx/ui/content/static</li>
+<li><strong>Digital Asset Management UI URL Example</strong>: https://dx-hybrid-service-dxhybwin-dxhybwin.apps.comp-dxdev.hcl-dx-dev.net/dx/ui/dam/static</li>
+<li>Navigate to the ConfigEngine service.</li>
+</ul>
+<p>Connect/login to the HCL DX 9.5 on-premises system and open a command line prompt. Navigate to the following path on your deployment:</p>
+<p><code>C:\&gt; cd  &lt;path to wp_profile&gt;\ConfigEngine</code></p>
+</li>
+<li>
+<p>Enable Content Composer and Digital Asset Management to the Hybrid deployment.</p>
+<p>If the on-premises HCL DX 9.5 Portal and Web Content Manager deployment is installed to a Windows platform, execute:</p>
+<ul>
+<li>
+<p><strong>Enable Content Composer</strong>:</p>
+<p><code>&lt;Path to wp_profile&gt;\ConfigEngine\ConfigEngine.bat enable-headless-content -Dstatic.ui.url=CONTENT_UI_URL -DWasPassword=... -DPortalAdminPwd=...</code></p>
+<p><strong>Note:</strong> In the command above, the CONTENT_UI_URL=Route URL is copied from the Red Hat OpenShift dashboard with <code>/static</code>.  <code>-DWasPassword=type</code> is the IBM WebSphere Application Server password and <code>-DPortalAdminPwd=type</code> is the DX admin password.</p>
+</li>
+<li>
+<p><strong>Enable Digital Asset Management</strong>:</p>
+<p><code>&lt;Path to wp_profile&gt;\ConfigEngine\ConfigEngine.bat enable-media-library -Dstatic.ui.url=DAM_URL -DWasPassword=... -DPortalAdminPwd=...</code></p>
+<p><strong>Note:</strong> In the command above, the DAM_URL=Route URL is copied from the Red Hat OpenShift dashboard with <code>/static</code>. <code>-DWasPassword=type</code> is the IBM WebSphere Application Server password and <code>-DPortalAdminPwd=type</code> is the DX admin password.</p>
+</li>
+</ul>
+<p>If the on-premises HCL DX 9.5 Portal and Web Content Manager deployment is installed to a Linux platform, execute:</p>
+<ul>
+<li>
+<p><strong>Enable Content Composer</strong>:</p>
+<p><code>&lt;Path to wp_profile&gt;\ConfigEngine\ConfigEngine.sh enable-headless-content -Dstatic.ui.url=CONTENT_UI_URL -DWasPassword=... -DPortalAdminPwd=...</code></p>
+<p><strong>Note:</strong> In the command above, the CONTENT_UI_URL=Route URL is copied from the Red Hat OpenShift dashboard with <code>/static</code>.  <code>-DWasPassword=type</code> is the IBM WebSphere Application Server password and <code>-DPortalAdminPwd=type</code> is the DX admin password.</p>
+</li>
+<li>
+<p><strong>Enable Digital Asset Management</strong>:</p>
+<p><code>&lt;Path to wp_profile&gt;\ConfigEngine\ConfigEngine.sh enable-media-library -Dstatic.ui.url=DAM_URL -DWasPassword=... -DPortalAdminPwd=...</code></p>
+<p><strong>Note:</strong> In the command above, the DAM_URL=Route URL is copied from the Red Hat OpenShift dashboard with <code>/static</code>. <code>-DWasPassword=type</code> is the IBM WebSphere Application Server password and <code>-DPortalAdminPwd=type</code> is the DX admin password.</p>
+</li>
+</ul>
+<p>Once the above steps are completed, log in to the Digital Experience 9.5 deployment and validate the Web Content and Digital Assets menu items appear.</p>
+<p><strong>Example</strong>:</p>
+<p><img alt="Validate the Web Content and Digital Assets menu items" src="../assets/validate_Web_Content_and_Digital_Assets_menu_items.png" /></p>
+</li>
+</ol>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Dernière mise à jour:
+      2022-01-02
+    
+  </small>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Retour en haut de la page
+          </a>
+        
+      </main>
+      
+ 
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.expand", "search.highlight", "search.share", "search.suggest"], "translations": {"clipboard.copy": "Copier dans le presse-papier", "clipboard.copied": "Copi\u00e9 dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.term.missing": "Non trouv\u00e9", "select.version.title": "S\u00e9lectionner la version"}, "search": "../../../assets/javascripts/workers/search.0bbba5b5.min.js", "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.649a939e.min.js"></script>
+      
+    
+  </body>
+</html>
