@@ -37,4 +37,4 @@ jobs:
           git config --global user.name circularlizard
           git config --global user.email david.strachan@mac.com
       - run: |
-          mike deploy -u 9.5.193 latest
+          mike deploy -u 9.5.193 latest --push
