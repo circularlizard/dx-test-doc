@@ -45,4 +45,4 @@ jobs:
           git config --global user.name circularlizard
           git config --global user.email david.strachan@mac.com
       - run: |
-          mike deploy -u ${RELEASE_TAG_VERSION}latest --push
+          mike deploy -u ${RELEASE_TAG_VERSION} latest --push
