@@ -1,6 +1,5 @@
 nav:
     - index.md
-    - k8s-next-deploy.md
     - k8s-next-operation.md
     - k8s-next-runtime-log-levels.md
     - k8s-next-runtime-log-levels-dbha.md
