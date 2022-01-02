@@ -1,0 +1,1613 @@
+<!-- Elements added to main will be displayed on all pages -->
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.4">
+    
+    
+      
+        <title>Deployment - DX Test Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bb3983ee.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#requirements" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        <aside class="md-banner md-banner--warning">
+          
+        </aside>
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="DX Test Site" class="md-header__button md-logo" aria-label="DX Test Site" data-md-component="logo">
+      
+  <img src="../../assets/dx_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DX Test Site
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Deployment
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../what%27s-new/new_cf17/" class="md-tabs__link">
+        What's new
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Kube
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DX Test Site" class="md-nav__button md-logo" aria-label="DX Test Site" data-md-component="logo">
+      
+  <img src="../../assets/dx_logo.png" alt="logo">
+
+    </a>
+    DX Test Site
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          What's new
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="What's new" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          What's new
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/new_cf17/" class="md-nav__link">
+        What's new in CF17?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/new_cf171/" class="md-nav__link">
+        What's new in CF171? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/new_cf172/" class="md-nav__link">
+        What's new in CF172? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/new_cf173/" class="md-nav__link">
+        What's new in CF173? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/new_cf18/" class="md-nav__link">
+        What's new in CF18? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/new_noncf18/" class="md-nav__link">
+        What's new in CF18?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf182/" class="md-nav__link">
+        What's new in CF182? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf183/" class="md-nav__link">
+        What's new in CF183? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf184/" class="md-nav__link">
+        What's new in CF184? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf19/" class="md-nav__link">
+        What's new in CF19? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/new_noncf19/" class="md-nav__link">
+        What's new with CF19?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf191/" class="md-nav__link">
+        What's new in CF191? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf192/" class="md-nav__link">
+        What's new in CF192? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf193/" class="md-nav__link">
+        What's new in CF193? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf194/" class="md-nav__link">
+        What's new in CF194? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf195/" class="md-nav__link">
+        What's new in CF195? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf196/" class="md-nav__link">
+        What's new in CF196? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/new_noncf196/" class="md-nav__link">
+        What's new in CF196?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf197/" class="md-nav__link">
+        What's new in CF197? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/new_noncf197/" class="md-nav__link">
+        What's new with CF197?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf198/" class="md-nav__link">
+        What's new in CF198? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/new_noncf198/" class="md-nav__link">
+        What's new with CF198?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/newcf199/" class="md-nav__link">
+        What's new in CF199? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/new_noncf199/" class="md-nav__link">
+        What's new with CF199?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../what%27s-new/new_cf181/" class="md-nav__link">
+        What's new in CF181? Containers
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Kube</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Kube" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Kube
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Deployment
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Deployment
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transparency-of-resources-and-the-whole-deployment" class="md-nav__link">
+    Transparency of resources and the whole deployment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#try-to-meet-the-kube-standards-in-terms-of-different-flavours" class="md-nav__link">
+    Try to meet the Kube standards in terms of different flavours.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ongoing-support-for-new-versions-of-kube-apis" class="md-nav__link">
+    Ongoing support for new versions of Kube API's.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-point-of-configuration-truth" class="md-nav__link">
+    Single point of configuration truth
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-design" class="md-nav__link">
+    Future design
+  </a>
+  
+    <nav class="md-nav" aria-label="Future design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#met-some-proposals-for-a-new-deployment-approach" class="md-nav__link">
+    Met some proposals for a new deployment approach
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-designs" class="md-nav__link">
+    Deployment designs
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment designs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#helm-based-deployment" class="md-nav__link">
+    HELM-based deployment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dxctl-based-deployment" class="md-nav__link">
+    DXCTL-based deployment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detail-decisions-informations" class="md-nav__link">
+    Detail decisions informations
+  </a>
+  
+    <nav class="md-nav" aria-label="Detail decisions informations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-configuration-point-for-helm-and-dxctl-deployment" class="md-nav__link">
+    Single configuration point for HELM and DXCTL deployment
+  </a>
+  
+    <nav class="md-nav" aria-label="Single configuration point for HELM and DXCTL deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#helm-chart-structure" class="md-nav__link">
+    HELM Chart structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exports-yaml-files" class="md-nav__link">
+    Exports YAML files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-implementation-of-the-dxctl" class="md-nav__link">
+    New implementation of the DXCTL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dont-use-an-operator-for-the-deployment" class="md-nav__link">
+    Don't use an operator for the deployment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatically-roll-deployment-provide-for-each-applicationdeployment-a-separated-configmap-and-provide-a-global-configmap-for-all-together" class="md-nav__link">
+    Automatically roll deployment - provide for each application/deployment a separated ConfigMap and provide a Global ConfigMap for all together
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-a-leader-consensus-logic-to-executing-changes-on-a-multi-pod-deployment-like-the-execution-of-a-configtask-on-dx" class="md-nav__link">
+    Using a leader consensus logic to executing changes on a multi pod deployment (like the execution of a ConfigTask on DX)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../k8s-next-operation/" class="md-nav__link">
+        Operations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../k8s-next-runtime-log-levels/" class="md-nav__link">
+        Runtime log levels
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../k8s-next-runtime-log-levels-dbha/" class="md-nav__link">
+        Runtime log levels - DBHA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" data-md-state="indeterminate" type="checkbox" id="__nav_3_6" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Prometheus
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Prometheus" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Prometheus
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Prometheus/k8s-next-nodejs-prom/" class="md-nav__link">
+        NodeJS Metrics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Prometheus/k8s-next-postgres-prom/" class="md-nav__link">
+        Postgres Metrics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Prometheus/k8s-next-prom/" class="md-nav__link">
+        Prometheus
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" data-md-state="indeterminate" type="checkbox" id="__nav_3_7" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_7">
+          Migration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Migration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Migration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Migration/k8s-next-migrate-from-operator/" class="md-nav__link">
+        Operator migration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Migration/k8s-next-migrate-detail-core/" class="md-nav__link">
+        Operator migration - core
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Migration/k8s-next-migrate-detail-dam/" class="md-nav__link">
+        Operator migration - DAM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Migration/k8s-next-property-migration/" class="md-nav__link">
+        Operator property migration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../k8s-next-update/" class="md-nav__link">
+        Updating
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../k8s-next-undeploy/" class="md-nav__link">
+        Undeploy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../k8s-next-conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../k8s-next-helm-incubator-values/" class="md-nav__link">
+        Incubator configurations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transparency-of-resources-and-the-whole-deployment" class="md-nav__link">
+    Transparency of resources and the whole deployment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#try-to-meet-the-kube-standards-in-terms-of-different-flavours" class="md-nav__link">
+    Try to meet the Kube standards in terms of different flavours.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ongoing-support-for-new-versions-of-kube-apis" class="md-nav__link">
+    Ongoing support for new versions of Kube API's.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-point-of-configuration-truth" class="md-nav__link">
+    Single point of configuration truth
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-design" class="md-nav__link">
+    Future design
+  </a>
+  
+    <nav class="md-nav" aria-label="Future design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#met-some-proposals-for-a-new-deployment-approach" class="md-nav__link">
+    Met some proposals for a new deployment approach
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-designs" class="md-nav__link">
+    Deployment designs
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment designs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#helm-based-deployment" class="md-nav__link">
+    HELM-based deployment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dxctl-based-deployment" class="md-nav__link">
+    DXCTL-based deployment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detail-decisions-informations" class="md-nav__link">
+    Detail decisions informations
+  </a>
+  
+    <nav class="md-nav" aria-label="Detail decisions informations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-configuration-point-for-helm-and-dxctl-deployment" class="md-nav__link">
+    Single configuration point for HELM and DXCTL deployment
+  </a>
+  
+    <nav class="md-nav" aria-label="Single configuration point for HELM and DXCTL deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#helm-chart-structure" class="md-nav__link">
+    HELM Chart structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exports-yaml-files" class="md-nav__link">
+    Exports YAML files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-implementation-of-the-dxctl" class="md-nav__link">
+    New implementation of the DXCTL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dont-use-an-operator-for-the-deployment" class="md-nav__link">
+    Don't use an operator for the deployment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatically-roll-deployment-provide-for-each-applicationdeployment-a-separated-configmap-and-provide-a-global-configmap-for-all-together" class="md-nav__link">
+    Automatically roll deployment - provide for each application/deployment a separated ConfigMap and provide a Global ConfigMap for all together
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-a-leader-consensus-logic-to-executing-changes-on-a-multi-pod-deployment-like-the-execution-of-a-configtask-on-dx" class="md-nav__link">
+    Using a leader consensus logic to executing changes on a multi pod deployment (like the execution of a ConfigTask on DX)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+  <h1>Deployment</h1>
+
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span className="dx-good"><strong>APPROVED</strong></span></td>
+<td><a href="https://pages.git.cwp.pnp-hcl.com/Team-Q/development-doc/architecture-community/2021-04-22">22nd of April 2021</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>All the stuff which is documented here, it is was only created under a deployment perspective.</strong></p>
+<p>Operations, undeploy and version updates are not part of this architecture concept.</p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>Transparency of resources and the whole deployment</li>
+<li>Try to meet the Kube standards in terms of different flavours</li>
+<li>Ongoing support for new versions of Kube API's</li>
+<li>Single point of configuration truth</li>
+</ul>
+<h3 id="transparency-of-resources-and-the-whole-deployment">Transparency of resources and the whole deployment</h3>
+<p>The complexity of our current deployment is to large. Customers have no real chance to determine how many resources will be consumed before they actually deploy it. The new deployment strategy need a clear summary of:</p>
+<ul>
+<li>min/max number of pods per service</li>
+<li>requested and limit of CPU&amp;RAM</li>
+<li>scaling triggers</li>
+<li>required disk space</li>
+<li>resulting minimal footprint</li>
+<li>resulting maximum footprint</li>
+</ul>
+<p>Also is a deployment via a operator extremely non-transparent. A customer has no changes to get information about:</p>
+<ul>
+<li>What is going via the deployment</li>
+<li>What will be deployed</li>
+<li>What will be changed automatically</li>
+<li>...</li>
+</ul>
+<h3 id="try-to-meet-the-kube-standards-in-terms-of-different-flavours">Try to meet the Kube standards in terms of different flavours.</h3>
+<p>The different kuberenetes flavours offer additional features to distinguish themselves in the market. While this is nice for individual application development, DX supports multiple vendors. Therefore it is very important that we are only following the kubernetes standard and not supporting some special functionality of other kubernetes flavour.</p>
+<p>Example of a special flavour functionality:
+Kubernetes is using Ingress to provide load balancing, SSL termination and name-based virtual hosting.
+OpenShift additionally offers Routes which provides a bit more functionality than Ingress. Since OpenShift is kubernetes compatible Ingress is also available. https://www.openshift.com/blog/kubernetes-ingress-vs-openshift-route </p>
+<p>To minimize our maintenance and support cost, it is crucial that we are not using or relying on special functionalities outside the kube standard.</p>
+<h3 id="ongoing-support-for-new-versions-of-kube-apis">Ongoing support for new versions of Kube API's.</h3>
+<p>Kubernetes and its internal API are rapidly changing. Therefore relying on the  <code>kubectl</code> cmd is not an ideal way. We have no option to ensure that all deployments are working correctly with newer versions of kube.
+For that it would be ideal to have a framework as an abstraction layer which is our single interface to communicate with kube.</p>
+<p>There are <a href="https://kubernetes.io/docs/reference/using-api/client-libraries/">multiple kube client libraries available</a>. Some of theme are officially-supported and other are maintained by an open source community.
+We should only go with a officially-supported library.</p>
+<p>Officially-supported language are:</p>
+<ul>
+<li>Golang</li>
+<li>Python</li>
+<li>Java</li>
+<li>dotnet</li>
+<li>Javascript/Typescript</li>
+<li>Haskel</li>
+</ul>
+<p>To reduce the number of different languages we need to maintain within our development organization we should limit ourselves to one of these:</p>
+<ul>
+<li>Java</li>
+<li>Javascript/Typescript</li>
+</ul>
+<h3 id="single-point-of-configuration-truth">Single point of configuration truth</h3>
+<p>From an easy maintaining and supporting perspective it is really important to have a single point of configuration which will be used for both deployments ways Helm-based and DXCTL-based.</p>
+<h2 id="future-design">Future design</h2>
+<h3 id="met-some-proposals-for-a-new-deployment-approach">Met some proposals for a new deployment approach</h3>
+<p>For the new future design we have met the following proposals to align the future design with the requirements.</p>
+<ol>
+<li>Using Helm charts as our single point of configuration</li>
+<li>Supporting DXCTL as a alternative deployment way</li>
+<li>DXCTL should be implemented new with a other language then golang</li>
+<li>Don't use an operator</li>
+<li>Automatically roll deployment - provide for each application/deployment a separated ConfigMap and provide a Global ConfigMap for generic configurations</li>
+<li>Using a master consensus logic to executing changes on a multi pod deployment (like the execution of a ConfigTask on DX)</li>
+</ol>
+<h3 id="deployment-designs">Deployment designs</h3>
+<h4 id="helm-based-deployment">HELM-based deployment</h4>
+<p>OLD DIAGRAM</p>
+<h4 id="dxctl-based-deployment">DXCTL-based deployment</h4>
+<p>OLD DIAGRAM</p>
+<h3 id="detail-decisions-informations">Detail decisions informations</h3>
+<h4 id="single-configuration-point-for-helm-and-dxctl-deployment">Single configuration point for HELM and DXCTL deployment</h4>
+<h5 id="helm-chart-structure">HELM Chart structure</h5>
+<pre><code>- Charts.yaml
+- values.yaml
+- templates/service.yaml
+- templates/deployments.yaml
+- ...
+</code></pre>
+<p>The <code>values.yaml</code> file provided a way to collect all required values on a central place.
+The properties form <code>values.yaml</code> can be used in each template.</p>
+<h5 id="exports-yaml-files">Exports YAML files</h5>
+<p>With the following CMD it is possible to export all templates. During the export process all used <code>values.yaml</code> properties will be replaced with the right value.</p>
+<pre><code>helm template &lt;CHART-NAME&gt;
+</code></pre>
+<p>A example output of this CMD is a text based output and should be looks like that one:</p>
+<pre><code>---
+# Source: mychart/templates/serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: RELEASE-NAME-mychart
+  labels:
+    helm.sh/chart: mychart-0.1.0
+    app.kubernetes.io/name: mychart
+    app.kubernetes.io/instance: RELEASE-NAME
+    app.kubernetes.io/version: &quot;1.16.0&quot;
+    app.kubernetes.io/managed-by: Helm
+---
+# Source: mychart/templates/service.yaml
+apiVersion: v1
+kind: Service
+...
+</code></pre>
+<p>This output can be stored as an YAML file and can be apply to a cluster via the kubectl tool.</p>
+<p>The DXCTL tool needs a new functionality to apply a bunch of YAML files to a kube cluster.</p>
+<h4 id="new-implementation-of-the-dxctl">New implementation of the DXCTL</h4>
+<p>In our DX organization we have extremely less experience in GoLang. The most common skills are present in Java and Javascript/Typescript. Therefore it is from an maintaining and supporting perspective important to write the DXCTL tool in one of this language. Besides of that is the actual code quality not so good.</p>
+<ul>
+<li>Missing linting</li>
+<li>Missing tests</li>
+<li>Missing use of global constants</li>
+<li>A non-transparent proprietary mapping concept</li>
+<li>Bad code structure</li>
+<li>Contained unused code</li>
+<li>Code only copied from the operator</li>
+</ul>
+<p>All in all it makes more sense to write the DXCTL tool new.</p>
+<h4 id="dont-use-an-operator-for-the-deployment">Don't use an operator for the deployment</h4>
+<p>What are the key features at the moment of our <code>DX CLOUD OPERATOR</code>?</p>
+<ul>
+<li>Scaling</li>
+<li>Triggering of some task (like a DX ConfigEngine task)</li>
+<li>Decided to use Routes (OpenShift) and the Ambassador for the rest</li>
+<li>Installation of our apps (RingAPI, CC, DAM)</li>
+</ul>
+<p>All this task are also possible to do that without an operator.</p>
+<p>The full status quo of the operator you can find <a href="core-operator-status-quo">here</a>.</p>
+<p><strong>What are the main reason why we should don't use an operator for the deployment?</strong></p>
+<p>The work of an operator is to non-transparent. Customers don't like it if they don't know what's happened during the deployment.</p>
+<h4 id="automatically-roll-deployment-provide-for-each-applicationdeployment-a-separated-configmap-and-provide-a-global-configmap-for-all-together">Automatically roll deployment - provide for each application/deployment a separated ConfigMap and provide a Global ConfigMap for all together</h4>
+<p>For a automatically roll deployment it would be good to have the configuration attributes are separated by deployments. Therefore it is possible to check the special ConfigMap if the values have changed and the special pods must be deployed again. </p>
+<p>Helm can helps us here with a checksum. The checksum of a special ConfigMap must be a part of the deployment metadata annotation.</p>
+<p>https://helm.sh/docs/howto/charts_tips_and_tricks/#automatically-roll-deployments</p>
+<h4 id="using-a-leader-consensus-logic-to-executing-changes-on-a-multi-pod-deployment-like-the-execution-of-a-configtask-on-dx">Using a leader consensus logic to executing changes on a multi pod deployment (like the execution of a ConfigTask on DX)</h4>
+<p>The leader consensus logic we need to find which is the leader from the multi pods. Only of the leader it is possible to run a ConfigEngin task. This task will change the wp-profile which is used by all core pods.</p>
+<p>Kubernetes self used <a href="https://github.com/etcd-io/etcd">etcd</a> as a consensus system. <a href="https://github.com/etcd-io/etcd">etcd</a> is using the <a href="https://raft.github.io/">Raft</a> consensus algorithm.</p>
+<p>Here is a really nice <a href="https://blog.container-solutions.com/raft-explained-part-1-the-consenus-problem">article</a> and <a href="http://thesecretlivesofdata.com/raft/">demo</a> of Raft.</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+ 
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.expand", "search.highlight", "search.share", "search.suggest"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.361d90f1.min.js", "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.289a2a4b.min.js"></script>
+      
+    
+  </body>
+</html>

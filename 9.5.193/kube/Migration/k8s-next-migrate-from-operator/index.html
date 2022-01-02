@@ -1,0 +1,1635 @@
+<!-- Elements added to main will be displayed on all pages -->
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.4">
+    
+    
+      
+        <title>Operator migration - DX Test Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bb3983ee.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#requirements" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        <aside class="md-banner md-banner--warning">
+          
+        </aside>
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="DX Test Site" class="md-header__button md-logo" aria-label="DX Test Site" data-md-component="logo">
+      
+  <img src="../../../assets/dx_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DX Test Site
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Operator migration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../what%27s-new/new_cf17/" class="md-tabs__link">
+        What's new
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
+        Kube
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="DX Test Site" class="md-nav__button md-logo" aria-label="DX Test Site" data-md-component="logo">
+      
+  <img src="../../../assets/dx_logo.png" alt="logo">
+
+    </a>
+    DX Test Site
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          What's new
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="What's new" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          What's new
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/new_cf17/" class="md-nav__link">
+        What's new in CF17?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/new_cf171/" class="md-nav__link">
+        What's new in CF171? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/new_cf172/" class="md-nav__link">
+        What's new in CF172? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/new_cf173/" class="md-nav__link">
+        What's new in CF173? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/new_cf18/" class="md-nav__link">
+        What's new in CF18? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/new_noncf18/" class="md-nav__link">
+        What's new in CF18?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf182/" class="md-nav__link">
+        What's new in CF182? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf183/" class="md-nav__link">
+        What's new in CF183? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf184/" class="md-nav__link">
+        What's new in CF184? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf19/" class="md-nav__link">
+        What's new in CF19? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/new_noncf19/" class="md-nav__link">
+        What's new with CF19?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf191/" class="md-nav__link">
+        What's new in CF191? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf192/" class="md-nav__link">
+        What's new in CF192? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf193/" class="md-nav__link">
+        What's new in CF193? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf194/" class="md-nav__link">
+        What's new in CF194? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf195/" class="md-nav__link">
+        What's new in CF195? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf196/" class="md-nav__link">
+        What's new in CF196? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/new_noncf196/" class="md-nav__link">
+        What's new in CF196?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf197/" class="md-nav__link">
+        What's new in CF197? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/new_noncf197/" class="md-nav__link">
+        What's new with CF197?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf198/" class="md-nav__link">
+        What's new in CF198? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/new_noncf198/" class="md-nav__link">
+        What's new with CF198?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/newcf199/" class="md-nav__link">
+        What's new in CF199? Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/new_noncf199/" class="md-nav__link">
+        What's new with CF199?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../what%27s-new/new_cf181/" class="md-nav__link">
+        What's new in CF181? Containers
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">Kube</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Kube" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Kube
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../k8s-next-deploy/" class="md-nav__link">
+        Deployment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../k8s-next-operation/" class="md-nav__link">
+        Operations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../k8s-next-runtime-log-levels/" class="md-nav__link">
+        Runtime log levels
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../k8s-next-runtime-log-levels-dbha/" class="md-nav__link">
+        Runtime log levels - DBHA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" data-md-state="indeterminate" type="checkbox" id="__nav_3_6" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Prometheus
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Prometheus" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Prometheus
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Prometheus/k8s-next-nodejs-prom/" class="md-nav__link">
+        NodeJS Metrics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Prometheus/k8s-next-postgres-prom/" class="md-nav__link">
+        Postgres Metrics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Prometheus/k8s-next-prom/" class="md-nav__link">
+        Prometheus
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_7">
+          Migration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Migration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Migration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Operator migration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Operator migration
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idea-of-migration-path" class="md-nav__link">
+    Idea of migration path
+  </a>
+  
+    <nav class="md-nav" aria-label="Idea of migration path">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extracting-kube-configs-and-create-the-helm-extracted-valuesyaml" class="md-nav__link">
+    Extracting kube config's and create the helm extracted-values.yaml
+  </a>
+  
+    <nav class="md-nav" aria-label="Extracting kube config's and create the helm extracted-values.yaml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extracting-configuration-data-from-the-operator-deployment" class="md-nav__link">
+    Extracting configuration data from the Operator deployment
+  </a>
+  
+    <nav class="md-nav" aria-label="Extracting configuration data from the Operator deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extracting-the-values-from-the-dxctl-property-file" class="md-nav__link">
+    Extracting the values from the dxctl property file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-a-new-dx-instance-via-helm-charts-and-the-extracted-valuesyaml" class="md-nav__link">
+    Deployment a new DX instance via HELM charts and the extracted-values.yaml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dx-component-migration" class="md-nav__link">
+    DX component migration
+  </a>
+  
+    <nav class="md-nav" aria-label="DX component migration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core" class="md-nav__link">
+    Core:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customer-extensions" class="md-nav__link">
+    Customer extensions:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dam" class="md-nav__link">
+    DAM:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dx-core-and-customer-extensions-migration" class="md-nav__link">
+    DX Core and customer extensions migration
+  </a>
+  
+    <nav class="md-nav" aria-label="DX Core and customer extensions migration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dxclient" class="md-nav__link">
+    dxclient
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-and-deploying-the-initial-release" class="md-nav__link">
+    Creating and deploying the initial release
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profile-migration" class="md-nav__link">
+    Profile migration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dx-dam-migration" class="md-nav__link">
+    DX DAM migration
+  </a>
+  
+    <nav class="md-nav" aria-label="DX DAM migration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exim" class="md-nav__link">
+    EXIM
+  </a>
+  
+    <nav class="md-nav" aria-label="EXIM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workaround-to-solve-it" class="md-nav__link">
+    Workaround to solve it:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup-and-recover" class="md-nav__link">
+    Backup and recover
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../k8s-next-migrate-detail-core/" class="md-nav__link">
+        Operator migration - core
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../k8s-next-migrate-detail-dam/" class="md-nav__link">
+        Operator migration - DAM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../k8s-next-property-migration/" class="md-nav__link">
+        Operator property migration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../k8s-next-update/" class="md-nav__link">
+        Updating
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../k8s-next-undeploy/" class="md-nav__link">
+        Undeploy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../k8s-next-conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../k8s-next-helm-incubator-values/" class="md-nav__link">
+        Incubator configurations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idea-of-migration-path" class="md-nav__link">
+    Idea of migration path
+  </a>
+  
+    <nav class="md-nav" aria-label="Idea of migration path">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extracting-kube-configs-and-create-the-helm-extracted-valuesyaml" class="md-nav__link">
+    Extracting kube config's and create the helm extracted-values.yaml
+  </a>
+  
+    <nav class="md-nav" aria-label="Extracting kube config's and create the helm extracted-values.yaml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extracting-configuration-data-from-the-operator-deployment" class="md-nav__link">
+    Extracting configuration data from the Operator deployment
+  </a>
+  
+    <nav class="md-nav" aria-label="Extracting configuration data from the Operator deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extracting-the-values-from-the-dxctl-property-file" class="md-nav__link">
+    Extracting the values from the dxctl property file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-a-new-dx-instance-via-helm-charts-and-the-extracted-valuesyaml" class="md-nav__link">
+    Deployment a new DX instance via HELM charts and the extracted-values.yaml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dx-component-migration" class="md-nav__link">
+    DX component migration
+  </a>
+  
+    <nav class="md-nav" aria-label="DX component migration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core" class="md-nav__link">
+    Core:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customer-extensions" class="md-nav__link">
+    Customer extensions:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dam" class="md-nav__link">
+    DAM:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dx-core-and-customer-extensions-migration" class="md-nav__link">
+    DX Core and customer extensions migration
+  </a>
+  
+    <nav class="md-nav" aria-label="DX Core and customer extensions migration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dxclient" class="md-nav__link">
+    dxclient
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-and-deploying-the-initial-release" class="md-nav__link">
+    Creating and deploying the initial release
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profile-migration" class="md-nav__link">
+    Profile migration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dx-dam-migration" class="md-nav__link">
+    DX DAM migration
+  </a>
+  
+    <nav class="md-nav" aria-label="DX DAM migration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exim" class="md-nav__link">
+    EXIM
+  </a>
+  
+    <nav class="md-nav" aria-label="EXIM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workaround-to-solve-it" class="md-nav__link">
+    Workaround to solve it:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup-and-recover" class="md-nav__link">
+    Backup and recover
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+  <h1>Operator migration</h1>
+
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>A proper installed Operator deployment is existing</li>
+<li>The installed DX release version should be the same for the operator and HELM deployment to minimize conflicts</li>
+<li>Use the same database for the operator and the HELM deployment to also minimize conflicts</li>
+</ul>
+<h2 id="idea-of-migration-path">Idea of migration path</h2>
+<p>The migration will be separated in three major steps.</p>
+<ul>
+<li>Extracting kube config's and create a HELM extracted-values.yaml</li>
+<li>Deployment of a new DX instance via HELM charts and the extracted-values.yaml</li>
+<li>DX component migration</li>
+</ul>
+<h3 id="extracting-kube-configs-and-create-the-helm-extracted-valuesyaml">Extracting kube config's and create the helm extracted-values.yaml</h3>
+<h4 id="extracting-configuration-data-from-the-operator-deployment">Extracting configuration data from the Operator deployment</h4>
+<p>Extracting related configuration values from Operator deployment to adjust the values of the helm deployment. The following parameter may be important to look at if you manually adjusted these.</p>
+<ul>
+<li>default.repository</li>
+<li>image and tags</li>
+<li>pullpolicy</li>
+<li>which applications are enabled</li>
+<li>cors configuration</li>
+<li>hybrid configuration</li>
+<li>request/limit - cpu and memory</li>
+<li>minreplicas, maxreplicas, targetcpuutilizationpercent, targetmemoryutilizationpercent</li>
+<li>persistent volume configuration (storageclass, ...)</li>
+<li>custom resource labels</li>
+<li>node selector configuration (for DX Core)</li>
+</ul>
+<p>The extracted values may need to be transfered it into a custom values.yaml helm file. </p>
+<h5 id="extracting-the-values-from-the-dxctl-property-file">Extracting the values from the dxctl property file</h5>
+<p>Via this approach we should only analyse the DXCTL property file and extract the config values from there. This extracted config values can be use to create a custom values.yaml file. </p>
+<h3 id="deployment-a-new-dx-instance-via-helm-charts-and-the-extracted-valuesyaml">Deployment a new DX instance via HELM charts and the extracted-values.yaml</h3>
+<p>Using the extracted-values.yaml from the operator deployment to get an adjusted HELM deployment. Run the HELM install CMD.</p>
+<p>For example:</p>
+<pre><code>helm install -n &lt;namespace&gt; -f ./extracted-values.yaml &lt;suffix&gt; hcl-dx-deployment
+</code></pre>
+<h3 id="dx-component-migration">DX component migration</h3>
+<p>The following components we need to migrate from the operator to the HELM deployment</p>
+<h5 id="core">Core:</h5>
+<ul>
+<li>Custom Themes</li>
+<li>Custom Portlets</li>
+<li>Pages</li>
+<li>WCM content/libs</li>
+<li>DAM assets</li>
+<li>Personalization rules (PZN)</li>
+<li>Credential Vault</li>
+<li>Virtual Portals</li>
+</ul>
+<h5 id="customer-extensions">Customer extensions:</h5>
+<ul>
+<li>Shared libs</li>
+<li>Resource Environment Providers</li>
+<li>Some special WAS configs</li>
+<li>Extensions like preprocessor, filters, ...</li>
+<li>...</li>
+</ul>
+<h5 id="dam">DAM:</h5>
+<ul>
+<li>Collections, Items, Metadata</li>
+<li>Assets (binaries)</li>
+</ul>
+<p>We have checked three approaches to migrate the DX Core components and customer extensions.</p>
+<ul>
+<li>Using the <a href="https://git.cwp.pnp-hcl.com/websphere-portal-incubator/enchanted-dxclient">dxclient</a> tool</li>
+<li>Creating and deploying the initial release - <a href="https://help.hcltechsw.com/digital-experience/8.5/deploy/dep_initial.html">HCL public documentation</a></li>
+<li>Profile migration</li>
+</ul>
+<p>To migrate the DAM data, we have have two options.</p>
+<ul>
+<li>Using the <a href="https://git.cwp.pnp-hcl.com/websphere-portal-incubator/media-library/tree/develop/packages/exim">EXIM</a> tool</li>
+<li>Using a manual backup and recover path</li>
+</ul>
+<h4 id="dx-core-and-customer-extensions-migration">DX Core and customer extensions migration</h4>
+<h5 id="dxclient">dxclient</h5>
+<p>The <a href="https://git.cwp.pnp-hcl.com/websphere-portal-incubator/enchanted-dxclient">dxclient</a> tool should be a good option to do that. For the most DX core components provided the tool a export and import functionality. But some components are missing also it is a problem to cover all the customer stuff, like some extensions, preprocessors, filters and what ever. Besides of that, the export can also be taking really long time, if the customer has create many pages or WCM data.</p>
+<p><img alt="DXClient Status Quo" src="../DXClient-Status-Quo.png" /></p>
+<h5 id="creating-and-deploying-the-initial-release">Creating and deploying the initial release</h5>
+<p>The <a href="https://help.hcltechsw.com/digital-experience/8.5/deploy/dep_initial.html">initial release</a> approach is creating a PAA application from some of the most DX core components, but also not for all. Also here the export and import can be taking really long time, if the customer has create many pages or WCM data.</p>
+<p>At the end this approach has not worked. The export process was successful but the import has some issues. I haven open a bug (<a href="https://jira.cwp.pnp-hcl.com/browse/DXQ-18719">DXQ-18719</a>) for that.</p>
+<h5 id="profile-migration">Profile migration</h5>
+<p>The profile migration was a idea from Thomas, which it looks like is a really good approach to do that. How it works this?</p>
+<ul>
+<li>Transferring the DB data - it is only relevant if the customer decide to use a new DB instance</li>
+<li>Stop the core package from HELM deployment</li>
+<li>Transfer the 'wp-profile' data from the operator deployment to the helm deployment</li>
+<li>Changed the database via the WAS console - it is only relevant if the customer decide to use a new DB instance</li>
+<li>Also we should fixed all hardcoded absolute URLs (like the URLs for the DAM assets)</li>
+</ul>
+<h4 id="dx-dam-migration">DX DAM migration</h4>
+<h5 id="exim">EXIM</h5>
+<p>Using the <a href="https://git.cwp.pnp-hcl.com/websphere-portal-incubator/media-library/tree/develop/packages/exim">EXIM</a> tool. The tool helps us to exports and imports all metadata and binaries. But it has some missing functionality and bugs, which are needs to solved it at first. I have open some stories and bugs to solve this.</p>
+<ul>
+<li><a href="https://jira.cwp.pnp-hcl.com/browse/DXQ-18810">DXQ-18810</a> - <a href="https://git.cwp.pnp-hcl.com/websphere-portal-incubator/media-library/tree/develop/packages/exim">EXIM</a> are using always ports, but the kube deployment are not exporting some ports</li>
+<li><a href="https://jira.cwp.pnp-hcl.com/browse/DXQ-18812">DXQ-18812</a> - <a href="https://git.cwp.pnp-hcl.com/websphere-portal-incubator/media-library/tree/develop/packages/exim">EXIM</a> has also a problem with the connection agains the Kube deployment.</li>
+<li><a href="https://jira.cwp.pnp-hcl.com/browse/DXQ-18813">DXQ-18813</a> - The import from binaries are not working as expected.</li>
+<li><a href="https://jira.cwp.pnp-hcl.com/browse/DXQ-18814">DXQ-18814</a> - The import from metadata are not working as expected, the reason is that the DAM collections access rights are not transferred.</li>
+</ul>
+<h6 id="workaround-to-solve-it">Workaround to solve it:</h6>
+<ul>
+<li>
+<p>Before we can import the metadata, we should transfer manually the binaries from the operator deployment to the HELM deployment. The binaries are located in the DAM persistent volume under the <code>dx-dam-media</code> folder.</p>
+</li>
+<li>
+<p>Also we should transfer manually all DAM collections resources permissions. Via XMLAccess we can extract all DAM collections resources permissions. For this export we should use the <code>/opt/HCL/PortalServer/doc/xml-samples/ExportAllDamCollections.xml</code> file to do that. And the generated XML output should be used to import it on the HELM deployment side.</p>
+</li>
+</ul>
+<p>If all DAM data's are transferred successful, we need to adjust the stored references to WCM assets in WCM. The references are stored as fully qualified URLs. For this problem exists solution to set a alternate hostname. </p>
+<p><a href="https://pages.git.cwp.pnp-hcl.com/Team-Q/documentation/docs/documentation/portal/wcm-dam-alternate-host/">WCM DAM alternate hostname</a></p>
+<h5 id="backup-and-recover">Backup and recover</h5>
+<p>The following documentation provided a manual backup and recovery way. But it looks that the documentation is not in a good shape.</p>
+<ul>
+<li>https://help.hcltechsw.com/digital-experience/9.5/containerization/backup_and_recovery_procedures.html</li>
+<li>https://support.hcltechsw.com/community?id=community_question&amp;sys_id=9e73a02e1b20b850f37655352a4bcbaa</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>Migration from operator-based to helm-based deployments will only be possible with exactly one DX version (presumable CF198). Both deployments have to be at  the same version level.</p>
+<ul>
+<li>
+<p>Moving <em>Kubernetes configurations</em>:
+  We will only provide documentation on how to extract configurations from an existing operator-based deployment using dxctl and how to interpret these. We will also document how a customer would be able to reflect these in their custom values.yaml for their helm-based deployment.</p>
+</li>
+<li>
+<p>For the <em>DX Core migration</em> the best approach is to copy the wp_profile from the operator-based deployment to the helm-based deployment. We expect other connected infrastructures (e.g. LDAP) to remain unchanged, hence no configuration changes are necessary.</p>
+</li>
+<li>
+<p><em>DX Core database</em> should just stay the same, hence no further changes would be necessary after copying the WAS profile. The old database needs to be reachable from the new helm-based deployment. If a customer needs to change the connected database, he can use database transfer tooling to move database content between the database instances.</p>
+</li>
+<li>
+<p>For <em>DX DAM</em> the DAM EXIM tool would be the preferred way. Unfortunately the EXIM implementation is not finished yet. Therefore the DAM move between an operator-based and a helm-based deployment will need to be done using Postgres database export/import and a copy of the DAM's binary storage. If EXIM gets finished in time, we can consider changing the documentation appropriately.</p>
+</li>
+</ul>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+ 
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.expand", "search.highlight", "search.share", "search.suggest"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.361d90f1.min.js", "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.289a2a4b.min.js"></script>
+      
+    
+  </body>
+</html>
