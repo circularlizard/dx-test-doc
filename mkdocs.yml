@@ -12,7 +12,6 @@ theme:
     - search.highlight
     - search.share
     - search.suggest
-  custom_dir: theme_overrides/
 plugins:
   - awesome-pages
   - search
