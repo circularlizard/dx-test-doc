@@ -24,6 +24,13 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Uppercase Repo
+        env: 
+          TAG_VERSION: ${{ github.event.release.tag_name }}
+        run: |
+          echo "REPO=${TAG_VERSION^^}" >>${GITHUB_ENV}
+      - name: use REPO
+        run: echo "The value of REPO is: ${REPO}"
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
